@@ -9,6 +9,11 @@
             "UnauthRoleName": "work-rota-workrota-20191003223912-unauthRole",
             "StackName": "work-rota-workrota-20191003223912",
             "StackId": "arn:aws:cloudformation:eu-west-1:819658649048:stack/work-rota-workrota-20191003223912/3cf05580-e626-11e9-838c-0a00435bc49c"
+        },
+        "categories": {
+            "auth": {
+                "workrota688950f7": {}
+            }
         }
     }
 }
