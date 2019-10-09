@@ -1,3 +1,5 @@
+import { AmplifyService } from 'aws-amplify-angular';
+
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Work-Rota';
+
+  constructor(private AmplifyService: AmplifyService) { }
 }

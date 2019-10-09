@@ -1,0 +1,19 @@
+{
+    "workrota": {
+        "awscloudformation": {
+            "AuthRoleName": "work-rota-workrota-20191009213829-authRole",
+            "UnauthRoleArn": "arn:aws:iam::819658649048:role/work-rota-workrota-20191009213829-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::819658649048:role/work-rota-workrota-20191009213829-authRole",
+            "Region": "eu-west-1",
+            "DeploymentBucketName": "work-rota-workrota-20191009213829-deployment",
+            "UnauthRoleName": "work-rota-workrota-20191009213829-unauthRole",
+            "StackName": "work-rota-workrota-20191009213829",
+            "StackId": "arn:aws:cloudformation:eu-west-1:819658649048:stack/work-rota-workrota-20191009213829/c2a1f0f0-ead4-11e9-8a2d-0233b49b0800"
+        },
+        "categories": {
+            "auth": {
+                "workrotaea31b3d3": {}
+            }
+        }
+    }
+}

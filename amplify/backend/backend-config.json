@@ -1,0 +1,9 @@
+{
+	"auth": {
+		"workrotaea31b3d3": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": []
+		}
+	}
+}

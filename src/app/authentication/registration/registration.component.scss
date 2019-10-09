@@ -1,0 +1,11 @@
+#regForm {
+    margin-top: 50px;
+    padding-left: calc(50% - 100px);
+}
+
+@media screen and (max-width: 990px) {
+    #regForm {
+        margin-top: 50px;
+        padding-left: 0px;
+    }
+}
