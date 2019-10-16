@@ -1,6 +1,10 @@
+import { environment } from './../../../environments/environment';
+import { AuthService } from '../auth.service';
+import { AmplifyService } from 'aws-amplify-angular';
+import { Auth } from 'aws-amplify';
 import { Person } from './../models/person';
 import { Component, OnInit, Output, EventEmitter, Input, OnChanges } from '@angular/core';
-import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-registration',
@@ -9,11 +13,11 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
 })
 export class RegistrationComponent implements OnInit {
 
-  @Output() personSubmitted = new EventEmitter<Person>();
-
   registrationForm: FormGroup;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private authService: AuthService) {
+
+  }
 
   ngOnInit() {
     this.registrationForm = this.fb.group({
@@ -33,10 +37,29 @@ export class RegistrationComponent implements OnInit {
     return this.registrationForm.get('password');
   }
 
-  onSubmit() {
-    console.log(this.registrationForm.value);
-
-    // this.personSubmitted.emit(this.registrationForm.value);
+  get firstName() {
+    return this.registrationForm.get('firstName');
   }
 
+  get lastName() {
+    return this.registrationForm.get('lastName');
+  }
+
+  // get phoneNum() {
+  //   return this.registrationForm.get('phoneNum');
+  // }
+
+  async onSignUp() {
+    try {
+      await this.authService.signUp({
+        email: this.email.value,
+        password: this.password.value
+      });
+
+      environment.confirm.email = this.email.value;
+      environment.confirm.password = this.password.value;
+    } catch (err) {
+      console.log(err);
+    }
+  }
 }
