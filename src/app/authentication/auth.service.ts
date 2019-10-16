@@ -21,6 +21,7 @@ export class AuthService {
 
   constructor() {
     Hub.listen('auth', (data) => {
+      console.log(data);
       const { channel, payload } = data;
       if (channel === 'auth') {
         this._authState.next(payload.event);
@@ -36,5 +37,22 @@ export class AuthService {
         email: user.email
       }
     });
+  }
+
+  signIn(username: string, password: string): Promise<CognitoUser|any> {
+    return new Promise(async (resolve, reject) => {
+      try {
+        const user: CognitoUser|any = await Auth.signIn(username, password);
+        this.loggedIn = true;
+        resolve(user);
+      } catch (err) {
+        reject(err);
+      }
+    });
+  }
+
+  signOut(): Promise<any> {
+    return Auth.signOut()
+      .then(() => this.loggedIn = false);
   }
 }

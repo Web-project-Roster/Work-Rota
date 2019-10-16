@@ -1,9 +1,6 @@
 import { environment } from './../../../environments/environment';
 import { AuthService } from '../auth.service';
-import { AmplifyService } from 'aws-amplify-angular';
-import { Auth } from 'aws-amplify';
-import { Person } from './../models/person';
-import { Component, OnInit, Output, EventEmitter, Input, OnChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 
 @Component({
