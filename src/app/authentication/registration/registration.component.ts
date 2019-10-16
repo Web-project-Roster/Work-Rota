@@ -2,6 +2,7 @@ import { environment } from './../../../environments/environment';
 import { AuthService } from '../auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registration',
@@ -12,8 +13,10 @@ export class RegistrationComponent implements OnInit {
 
   registrationForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private authService: AuthService) {
-
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private router: Router) {
   }
 
   ngOnInit() {
@@ -50,11 +53,14 @@ export class RegistrationComponent implements OnInit {
     try {
       await this.authService.signUp({
         email: this.email.value,
-        password: this.password.value
+        password: this.password.value,
+        firstName: this.firstName.value,
+        lastName: this.lastName.value
       });
 
       environment.confirm.email = this.email.value;
       environment.confirm.password = this.password.value;
+      this.router.navigate(['auth/confirm']);
     } catch (err) {
       console.log(err);
     }

@@ -8,6 +8,8 @@ import { Subject, Observable } from 'rxjs';
 export interface NewUser {
   email: string;
   password: string;
+  firstName: string;
+  lastName: string;
 }
 
 @Injectable({
@@ -34,7 +36,9 @@ export class AuthService {
       username: user.email,
       password: user.password,
       attributes: {
-        email: user.email
+        email: user.email,
+        given_name: user.firstName,
+        family_name: user.lastName
       }
     });
   }
