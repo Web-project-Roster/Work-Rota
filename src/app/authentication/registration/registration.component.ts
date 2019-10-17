@@ -3,6 +3,7 @@ import { AuthService } from '../auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-registration',
@@ -16,7 +17,8 @@ export class RegistrationComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
-    private router: Router) {
+    private router: Router,
+    private toastr: ToastrService) {
   }
 
   ngOnInit() {
@@ -45,10 +47,6 @@ export class RegistrationComponent implements OnInit {
     return this.registrationForm.get('lastName');
   }
 
-  // get phoneNum() {
-  //   return this.registrationForm.get('phoneNum');
-  // }
-
   async onSignUp() {
     try {
       await this.authService.signUp({
@@ -62,7 +60,8 @@ export class RegistrationComponent implements OnInit {
       environment.confirm.password = this.password.value;
       this.router.navigate(['auth/confirm']);
     } catch (err) {
-      console.log(err);
+      console.log(err.message);
+      this.toastr.error(err.message);
     }
   }
 }
