@@ -58,9 +58,8 @@ export class RegistrationComponent implements OnInit {
 
       environment.confirm.email = this.email.value;
       environment.confirm.password = this.password.value;
-      this.router.navigate(['auth/confirm']);
+      this.router.navigate(['confirm-register']);
     } catch (err) {
-      console.log(err.message);
       this.toastr.error(err.message);
     }
   }

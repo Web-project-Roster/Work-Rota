@@ -1,11 +1,19 @@
 #regForm {
     margin-top: 50px;
-    padding-left: calc(50% - 100px);
+    padding: 20px;
 }
 
+.container {
+    margin-left: calc(50% - 100px);
+    max-width: 800px;
+}
 @media screen and (max-width: 990px) {
-    #regForm {
-        margin-top: 50px;
-        padding-left: 0px;
+    .container {
+        margin-left: 0px;
     }
 }
+
+.form-background {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
