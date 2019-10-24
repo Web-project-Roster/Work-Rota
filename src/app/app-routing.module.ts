@@ -8,7 +8,7 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   { path: '', component: RegistrationComponent },
   { path: 'register', component: RegistrationComponent },
-  { path: 'auth/confirm', component: ConfirmRegistrationComponent },
+  { path: 'confirm-register', component: ConfirmRegistrationComponent },
   { path: 'login', component: LoginComponent }
 ];
 

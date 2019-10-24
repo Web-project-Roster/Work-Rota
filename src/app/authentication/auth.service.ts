@@ -1,9 +1,6 @@
 import { Injectable } from '@angular/core';
-import Auth, { CognitoHostedUIIdentityProvider } from '@aws-amplify/auth';
-import { Hub } from '@aws-amplify/core';
+import { AmplifyService } from 'aws-amplify-angular';
 import { CognitoUser } from 'amazon-cognito-identity-js';
-import { Subject, Observable } from 'rxjs';
-
 
 export interface NewUser {
   email: string;
@@ -17,22 +14,19 @@ export interface NewUser {
 })
 export class AuthService {
 
-  public loggedIn: boolean;
-  private _authState: Subject<CognitoUser|any> = new Subject<CognitoUser|any>();
-  authState: Observable<CognitoUser|any> = this._authState.asObservable();
+  user: NewUser;
 
-  constructor() {
-    Hub.listen('auth', (data) => {
-      console.log(data);
-      const { channel, payload } = data;
-      if (channel === 'auth') {
-        this._authState.next(payload.event);
+  constructor(private amplifyService: AmplifyService) {
+    this.amplifyService.authStateChange$
+    .subscribe({
+      next: (authState) => {
+        console.log(authState);
       }
-    });
+    })
    }
 
-   signUp(user: NewUser): Promise<CognitoUser|any> {
-    return Auth.signUp({
+  signUp(user: NewUser): Promise<CognitoUser|any> {
+    return this.amplifyService.auth().signUp({
       username: user.email,
       password: user.password,
       attributes: {
@@ -46,8 +40,7 @@ export class AuthService {
   signIn(username: string, password: string): Promise<CognitoUser|any> {
     return new Promise(async (resolve, reject) => {
       try {
-        const user: CognitoUser|any = await Auth.signIn(username, password);
-        this.loggedIn = true;
+        const user: CognitoUser|any = await this.amplifyService.auth().signIn(username, password);
         resolve(user);
       } catch (err) {
         reject(err);
@@ -56,7 +49,6 @@ export class AuthService {
   }
 
   signOut(): Promise<any> {
-    return Auth.signOut()
-      .then(() => this.loggedIn = false);
+    return this.amplifyService.auth().signOut()
   }
 }

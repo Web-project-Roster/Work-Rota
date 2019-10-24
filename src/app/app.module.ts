@@ -1,5 +1,6 @@
-import { AmplifyService } from 'aws-amplify-angular';
+import { AmplifyService, AmplifyModules, AmplifyAngularModule } from 'aws-amplify-angular';
 import { AuthService } from './authentication/auth.service';
+import Auth from '@aws-amplify/auth';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -30,13 +31,21 @@ import { LoginComponent } from './authentication/login/login.component';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    AmplifyAngularModule,
     ToastrModule.forRoot({
       positionClass: 'toast-bottom-center'
     })
   ],
   providers: [
-    AuthService,
-    AmplifyService
+    // AuthService,
+    {
+      provide: AmplifyService,
+      useFactory:  () => {
+        return AmplifyModules({
+          Auth
+        });
+      }
+    }
   ],
   bootstrap: [AppComponent]
 })
