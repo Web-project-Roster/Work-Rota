@@ -1,7 +1,6 @@
-import Auth from '@aws-amplify/auth';
+import { AmplifyService }  from 'aws-amplify-angular';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../auth.service';
 import { environment } from './../../../environments/environment';
 
 @Component({
@@ -11,15 +10,17 @@ import { environment } from './../../../environments/environment';
 })
 export class ConfirmRegistrationComponent implements OnInit {
 
-  email = environment.confirm.email;
+  constructor(private authService: AmplifyService, private router: Router) {
+    this.authService.authState().subscribe(authState => {
+      this.isUserAllowedHere(authState);
+    });
+   }
 
-  constructor(private authService: AuthService, private router: Router) { }
+  ngOnInit() { }
 
-  ngOnInit() {
-    if (!this.email) {
+  isUserAllowedHere({ state }) {
+    if (state !== 'confirmSignUp') {
       this.router.navigate(['register']);
-    } else {
-      Auth.resendSignUp(this.email);
     }
   }
 

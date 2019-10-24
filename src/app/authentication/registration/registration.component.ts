@@ -55,9 +55,7 @@ export class RegistrationComponent implements OnInit {
         firstName: this.firstName.value,
         lastName: this.lastName.value
       });
-
-      environment.confirm.email = this.email.value;
-      environment.confirm.password = this.password.value;
+      
       this.router.navigate(['confirm-register']);
     } catch (err) {
       this.toastr.error(err.message);
