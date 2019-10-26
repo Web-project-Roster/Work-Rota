@@ -1,6 +1,23 @@
 <div class="container">
-    Check your email to verify your amazon.jobs account
-    We've sent a verification email to {{username}} Check your email to verify your account so we know it's you.
-    If you didn't receive the verification email, please check your spam folder. 
-    <a>Or, click here to resend it.</a>
+  <form [formGroup]="form" (ngSubmit)="confirmCode()" id="codeForm">
+    <div class="form-group">
+      <label for="confirmationCode">Conformation Code: </label>
+      <input
+        id="confirmationCode"
+        type="text"
+        formControlName="confirmationCode"
+        class="form-control"
+      />
+    </div>
+    <button class="mx-auto btn btn-primary" type="submit">Submit</button>
+  </form>
+  <div>
+    Check your email to verify your amazon.jobs account We've sent a
+    verification code to {{ email }}. Check your email to verify your account so
+    we know it's you. If you didn't receive the verification email, please check
+    your spam folder. Or,
+  </div>
+  <a (click)="resendVerificationCode()">
+    <button>click here to resend it.</button>
+  </a>
 </div>

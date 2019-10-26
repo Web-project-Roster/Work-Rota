@@ -1,20 +1,25 @@
-import { AmplifyService, AmplifyModules, AmplifyAngularModule } from 'aws-amplify-angular';
-import { AuthService } from './authentication/auth.service';
-import Auth from '@aws-amplify/auth';
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {
+  AmplifyService,
+  AmplifyModules,
+  AmplifyAngularModule
+} from "aws-amplify-angular";
+import { AuthService } from "./authentication/auth.service";
+import Auth from "@aws-amplify/auth";
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
-import { AppRoutingModule } from './app-routing.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ToastrModule } from 'ngx-toastr';
+import { AppRoutingModule } from "./app-routing.module";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { ToastrModule } from "ngx-toastr";
 
-import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { RegistrationComponent } from './authentication/registration/registration.component';
-import { ConfirmRegistrationComponent } from './authentication/confirm-registration/confirm-registration.component';
-import { LoginComponent } from './authentication/login/login.component';
+import { AppComponent } from "./app.component";
+import { NavbarComponent } from "./navbar/navbar.component";
+import { RegistrationComponent } from "./authentication/registration/registration.component";
+import { ConfirmRegistrationComponent } from "./authentication/confirm-registration/confirm-registration.component";
+import { LoginComponent } from "./authentication/login/login.component";
+import { ProfileComponent } from './authentication/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +27,8 @@ import { LoginComponent } from './authentication/login/login.component';
     NavbarComponent,
     RegistrationComponent,
     ConfirmRegistrationComponent,
-    LoginComponent
+    LoginComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -33,14 +39,14 @@ import { LoginComponent } from './authentication/login/login.component';
     BrowserAnimationsModule,
     AmplifyAngularModule,
     ToastrModule.forRoot({
-      positionClass: 'toast-bottom-center'
+      positionClass: "toast-bottom-center"
     })
   ],
   providers: [
     // AuthService,
     {
       provide: AmplifyService,
-      useFactory:  () => {
+      useFactory: () => {
         return AmplifyModules({
           Auth
         });
@@ -49,4 +55,4 @@ import { LoginComponent } from './authentication/login/login.component';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
