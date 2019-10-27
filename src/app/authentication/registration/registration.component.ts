@@ -1,4 +1,4 @@
-import { environment } from "./../../../environments/environment";
+import { environment } from "../../../environments/environment";
 import { AuthService } from "../auth.service";
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, Validators, FormBuilder } from "@angular/forms";
@@ -55,7 +55,7 @@ export class RegistrationComponent implements OnInit {
       });
 
       environment.userInfo.password = this.password.value;
-      this.router.navigate(["confirm-register"]);
+      this.router.navigate(["auth/confirm-register"]);
     } catch (err) {
       this.toastr.error(err.message);
     }

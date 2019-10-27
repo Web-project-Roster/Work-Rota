@@ -3,14 +3,21 @@ import { ConfirmRegistrationComponent } from "./authentication/confirm-registrat
 import { RegistrationComponent } from "./authentication/registration/registration.component";
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
-import { ProfileComponent } from "./authentication/profile/profile.component";
+import { AuthenticationComponent } from "./authentication/authentication.component";
+import { AuthGuard } from "./authentication/auth.guard";
+import { MainComponent } from "./main/main.component";
 
 const routes: Routes = [
-  { path: "", component: RegistrationComponent },
-  { path: "register", component: RegistrationComponent },
-  { path: "confirm-register", component: ConfirmRegistrationComponent },
-  { path: "login", component: LoginComponent },
-  { path: "profile", component: ProfileComponent }
+  {
+    path: "auth",
+    component: AuthenticationComponent,
+    children: [
+      { path: "register", component: RegistrationComponent },
+      { path: "confirm-register", component: ConfirmRegistrationComponent },
+      { path: "login", component: LoginComponent }
+    ]
+  },
+  { path: "", component: MainComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({

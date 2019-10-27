@@ -19,7 +19,8 @@ import { NavbarComponent } from "./navbar/navbar.component";
 import { RegistrationComponent } from "./authentication/registration/registration.component";
 import { ConfirmRegistrationComponent } from "./authentication/confirm-registration/confirm-registration.component";
 import { LoginComponent } from "./authentication/login/login.component";
-import { ProfileComponent } from './authentication/profile/profile.component';
+import { AuthenticationComponent } from "./authentication/authentication.component";
+import { MainComponent } from "./main/main.component";
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ProfileComponent } from './authentication/profile/profile.component';
     RegistrationComponent,
     ConfirmRegistrationComponent,
     LoginComponent,
-    ProfileComponent
+    AuthenticationComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,

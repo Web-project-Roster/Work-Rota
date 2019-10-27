@@ -1,14 +1,14 @@
 import { Component, OnInit } from "@angular/core";
-import { AuthService } from "../auth.service";
+import { AuthService } from "../authentication/auth.service";
 import { ToastrService } from "ngx-toastr";
 import { Router } from "@angular/router";
 
 @Component({
-  selector: "app-profile",
-  templateUrl: "./profile.component.html",
-  styleUrls: ["./profile.component.scss"]
+  selector: "app-main",
+  templateUrl: "./main.component.html",
+  styleUrls: ["./main.component.scss"]
 })
-export class ProfileComponent implements OnInit {
+export class MainComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private toastr: ToastrService,
@@ -20,7 +20,9 @@ export class ProfileComponent implements OnInit {
   async logout() {
     try {
       await this.authService.signOut();
-      this.router.navigate(["login"]);
-    } catch (err) {}
+      this.router.navigate(["auth/login"]);
+    } catch (err) {
+      this.toastr.error("There was a problem sigining you out");
+    }
   }
 }

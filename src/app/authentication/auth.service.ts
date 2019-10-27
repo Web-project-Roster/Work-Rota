@@ -26,6 +26,10 @@ export class AuthService {
     });
   }
 
+  async currentAuthenticatedUser(): Promise<CognitoUser | any> {
+    return this.amplifyService.auth().currentAuthenticatedUser();
+  }
+
   resendVerificationCode(email: string): Promise<CognitoUser | any> {
     return this.amplifyService.auth().resendSignUp(email);
   }

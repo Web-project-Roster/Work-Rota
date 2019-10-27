@@ -38,7 +38,7 @@ export class ConfirmRegistrationComponent implements OnInit {
 
   isUserAllowedHere({ state, user }) {
     if (state !== "confirmSignUp") {
-      this.router.navigate(["register"]);
+      this.router.navigate(["auth/register"]);
     } else {
       this.email = user.username.username;
     }
@@ -51,7 +51,7 @@ export class ConfirmRegistrationComponent implements OnInit {
         this.confirmationCode.value
       );
       await this.authService.signIn(this.email, environment.userInfo.password);
-      this.router.navigate(["profile"]);
+      this.router.navigate([""]);
     } catch (err) {
       this.toastr.error(err);
       console.log(err);
