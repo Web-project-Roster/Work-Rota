@@ -1,47 +1,33 @@
-<div class="container">
-  <div class="form-background">
-    <form [formGroup]="registrationForm" (ngSubmit)="onSignUp()" id="regForm">
-      <div class="form-group">
-        <label for="email">Email: </label>
-        <input
-          id="email"
-          type="text"
-          formControlName="email"
-          class="form-control"
-        />
-      </div>
-
-      <div class="form-group">
-        <label for="firstname">First Name: </label>
-        <input
-          id="firstname"
-          type="text"
-          formControlName="firstName"
-          class="form-control"
-        />
-      </div>
-
-      <div class="form-group">
-        <label for="lastname">Last Name: </label>
-        <input
-          id="lastname"
-          type="text"
-          formControlName="lastName"
-          class="form-control"
-        />
-      </div>
-
-      <div class="form-group">
-        <label for="password">Password: </label>
-        <input
-          id="password"
-          type="text"
-          formControlName="password"
-          class="form-control"
-        />
-      </div>
-
-      <button class="mx-auto btn btn-primary" type="submit">Submit</button>
-    </form>
+<form [formGroup]="registrationForm" (ngSubmit)="onSignUp()" id="regForm" class="registration-container">
+  <div class="form-group ">
+    <label for="email">Email: </label>
+    <input
+      id="email"
+      type="text"
+      formControlName="email"
+      class="form-control"
+    />
+    <label for="firstname">First Name: </label>
+    <input
+      id="firstname"
+      type="text"
+      formControlName="firstName"
+      class="form-control"
+    />
+    <label for="lastname">Last Name: </label>
+    <input
+      id="lastname"
+      type="text"
+      formControlName="lastName"
+      class="form-control"
+    />
+    <label for="password">Password: </label>
+    <input
+      id="password"
+      type="text"
+      formControlName="password"
+      class="form-control"
+    />
+    <button class="mx-auto btn btn-primary" type="submit">Submit</button>
   </div>
-</div>
+</form>

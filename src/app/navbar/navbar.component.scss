@@ -1,0 +1,7 @@
+.navbar {
+    @media only screen and (max-width: 770px)
+    {
+        z-index: -1;
+        display: none;
+    }
+}
