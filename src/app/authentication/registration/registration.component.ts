@@ -53,7 +53,7 @@ export class RegistrationComponent implements OnInit {
         firstName: this.firstName.value,
         lastName: this.lastName.value
       });
-
+      
       environment.userInfo.password = this.password.value;
       this.router.navigate(["auth/confirm-register"]);
     } catch (err) {

@@ -24,16 +24,6 @@ export class AuthenticationComponent implements OnInit {
     this.tabsForm.setValue({formTab: 'login'})
   }
 
-  // ngAfterViewInit() {
-  //   console.log(this.gradientWindow)
-  //   const ctx = this.gradientWindow.nativeElement.getContext("2d")
-  //   let grd = ctx.createLinearGradient(0,0,200,0)
-  //   grd.addColorStop(0,'red')
-  //   grd.addColorStop(1,'green')
-  //   ctx.fillStyle = grd
-  //   ctx.fillRect(10,10,150,80)
-  // }
-
   get formTab() { return this.tabsForm.get('formTab') }
  
 }
