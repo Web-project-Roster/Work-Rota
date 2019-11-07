@@ -1,5 +1,8 @@
 <form [formGroup]="registrationForm" (ngSubmit)="onSignUp()" id="regForm" class="registration-container">
-  <div class="form-group ">
+  <div class="form-group col-md-10">
+    <div class="header">
+        <h1>Register</h1>
+      </div>
     <label for="email">Email: </label>
     <input
       id="email"
@@ -28,6 +31,8 @@
       formControlName="password"
       class="form-control"
     />
-    <button class="mx-auto btn btn-primary" type="submit">Submit</button>
+    <div class="btn-wrap">
+        <button class="mx-auto btn btn-primary" type="submit">Register</button>
+    </div>
   </div>
 </form>

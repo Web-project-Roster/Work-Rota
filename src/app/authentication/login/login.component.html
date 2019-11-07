@@ -1,20 +1,25 @@
 <form [formGroup]="loginForm" (ngSubmit)="onLogin()" id="loginForm">
-  <div class="form-group">
+  <div class="form-group col-md-10">
+    <div class="header">
+      <h1>Log in</h1>
+    </div>
     <label for="email">Email: </label>
     <input
       id="email"
       type="text"
       formControlName="email"
-      class="form-control"
+      class="form-control  col-xs-12"
     />
     <label for="password">Password: </label>
     <input
       id="password"
-      type="text"
+      type="password"
       formControlName="password"
       class="form-control"
     />
-    <button class="mx-auto btn btn-primary" type="submit">Login</button>
+    <div class="btn-wrap">
+      <button class="mx-auto btn btn-primary" type="submit">Login</button>
+    </div>
   </div> 
 </form>
 

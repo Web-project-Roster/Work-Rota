@@ -8,51 +8,43 @@
         height: 100%;
     }
 
+    .image {
+        position: absolute;
+        top: 40%;
+        left: 10%;
+        
+        @media only screen and (max-width: 960px) { 
+            display: none; 
+        }    
+        img {
+            height: 320px;
+        }
+    }
+
     .header {
         position: absolute;
-        top: 50%;
+        top: 10%;
         left: 10%;
-        transform: translateY(-50%);
-        color: white;
 
         h1 {
+            color: white;
             font-size: 72px;
         }
 
-        img {
-            height: 340px;
-        }
-
         h2 {
+            color: white;
             font-size: 42px;
             width: 250px;
-            position: absolute;
-            top: 35%;
-            transform: translateY(-50%);
-        }
-
-        @media only screen and (max-width: 1200px)
-        {
-            h2 {  
-                display: none; 
-            }    
-        }        
-
-        
+        }             
     }
 
-    @media only screen and (min-width: 768px)
-    {
+    @media only screen and (min-width: 769px) {
         .form-container {
-            min-width: 300px;
-            max-width: 300px;
-            height: 50% !important;
-            min-height: 410px;
             position: absolute;
-            top: 50%;
-            left: 70%;
-            -ms-transform: translateY(-50%);
-            transform: translateY(-50%);
+            height: 80% !important;
+            width: 400px !important;
+            top: 10%;
+            right: 10%;
 
             .routing-container {
                 position: relative;
@@ -62,11 +54,12 @@
 
     .form-container {
         margin: 0;
-        background-color: white;
-        box-shadow: 0px 5px 8px 4px rgba(0,0,0,0.75);
         height: 100%;
         width: 100%;
         position: fixed;
+        font-family: 'Roboto', sans-serif;
+        background-color: white;
+        box-shadow: 0px 5px 8px 4px rgba(0,0,0,0.75);
     
         .routing-container {
             padding: 20px;

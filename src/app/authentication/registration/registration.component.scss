@@ -1,3 +1,43 @@
-.registration-container {
-    
+.form-group {
+    position: absolute;
+    left: 50%;
+    top: 45%;
+    transform: translate(-50%, -50%);
+
+    .header {
+        position: relative;
+        height: 80px;
+        margin-bottom: 10px;
+
+        h1 {
+            font-size: 60px;
+            position: absolute;
+            font-weight: 300;
+            width: fit-content;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+
+    label {
+        margin-bottom: 2px;
+        margin-left: 10px;
+    }
+
+    input.form-control {
+        border-radius: 50px;
+        margin-bottom: 5px;
+    }
+
+    .btn-wrap {
+        position: relative;
+        height: 50px;
+
+        .btn {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
 }
