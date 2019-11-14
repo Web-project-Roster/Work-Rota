@@ -1,1 +1,39 @@
-<router-outlet></router-outlet>
+<div class="container-fluid">
+  <div>
+      <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+          <defs>
+              <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style="stop-color:#551CFF;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#2A00AA;stop-opacity:1" />
+              </linearGradient>
+            </defs>
+        <polygon points="0,0 100,0 100,75 0,40" fill="url(#grad1)"></polygon>
+      </svg>
+  </div>
+  <div class="header">
+      <h1>Hour.ly</h1>
+      <h2>All your shifts<br>One place</h2>
+  </div>
+  <div class="image">
+      <img src="../../assets/time_management_2.svg">
+  </div>
+
+  <!-- <canvas id="gradient-background" #gradientBackground></canvas> -->
+  <div class="form-container">
+    <div class="routing-container col-sm-8 col-md-12">
+      <router-outlet></router-outlet>
+    </div>
+    <div class="form-wrap">
+      <form [formGroup]="tabsForm">
+        <div class="btn-group btn-group-toggle form-tabs-container" ngbRadioGroup name="radioBasic" formControlName="formTab">
+          <label ngbButtonLabel class="form-tab btn">
+            <input ngbButton type="radio" value="login"> Login
+          </label>
+          <label ngbButtonLabel class="form-tab btn">
+            <input ngbButton type="radio" value="register"> Register
+          </label>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

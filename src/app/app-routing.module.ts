@@ -12,9 +12,9 @@ const routes: Routes = [
     path: "auth",
     component: AuthenticationComponent,
     children: [
+      { path: "login", component: LoginComponent },
       { path: "register", component: RegistrationComponent },
-      { path: "confirm-register", component: ConfirmRegistrationComponent },
-      { path: "login", component: LoginComponent }
+      { path: "confirm-register", component: ConfirmRegistrationComponent }
     ]
   },
   { path: "", component: MainComponent, canActivate: [AuthGuard] }
