@@ -21,6 +21,7 @@ import { ConfirmRegistrationComponent } from "./authentication/confirm-registrat
 import { LoginComponent } from "./authentication/login/login.component";
 import { AuthenticationComponent } from "./authentication/authentication.component";
 import { MainComponent } from "./main/main.component";
+import { SpinnerComponent } from './Components/spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { MainComponent } from "./main/main.component";
     ConfirmRegistrationComponent,
     LoginComponent,
     AuthenticationComponent,
-    MainComponent
+    MainComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
