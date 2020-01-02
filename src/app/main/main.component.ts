@@ -1,7 +1,5 @@
 import { Component, OnInit } from "@angular/core";
 import { AuthService } from "../authentication/auth.service";
-import { ToastrService } from "ngx-toastr";
-import { Router } from "@angular/router";
 
 @Component({
   selector: "app-main",
@@ -10,19 +8,10 @@ import { Router } from "@angular/router";
 })
 export class MainComponent implements OnInit {
   constructor(
-    private authService: AuthService,
-    private toastr: ToastrService,
-    private router: Router
+    private authService: AuthService
   ) {}
 
   ngOnInit() {}
 
-  async logout() {
-    try {
-      await this.authService.signOut();
-      this.router.navigate(["auth/login"]);
-    } catch (err) {
-      this.toastr.error("There was a problem sigining you out");
-    }
-  }
+  
 }
