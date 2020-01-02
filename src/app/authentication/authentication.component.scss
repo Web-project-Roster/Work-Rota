@@ -35,7 +35,7 @@
             color: white;
             font-size: 42px;
             width: 250px;
-        }             
+        }
     }
 
     @media only screen and (min-width: 769px) {
@@ -92,7 +92,7 @@
             //override ng bootstrap properties
             .form-tab.active { z-index: 1 !important; }
             .form-tab.active:first-child, .form-tab.active:first-child:hover  { box-shadow: 1px 1px 5px -5px rgba(0,0,0,0.7); }
-            .form-tab.active:last-child, .form-tab.active:last-child:hover { box-shadow: -1px 1 5px -5px rgba(0,0,0,0.7); }
+            .form-tab.active:last-child, .form-tab.active:last-child:hover { box-shadow: -1px -1px 5px -5px rgba(0,0,0,0.7); }
         }
     }
 }
