@@ -9,6 +9,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AppRoutingModule } from "./app-routing.module";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
@@ -21,6 +22,10 @@ import { ConfirmRegistrationComponent } from "./authentication/confirm-registrat
 import { LoginComponent } from "./authentication/login/login.component";
 import { AuthenticationComponent } from "./authentication/authentication.component";
 import { MainComponent } from "./main/main.component";
+import { RotaListComponent } from './pages/rota/rota-form/rota-list/rota-list.component'
+import { RotaTileComponent } from './pages/rota/rota-tile/rota-tile.component'
+import { RotaFormComponent } from './pages/rota/rota-form/rota-form.component'
+import { RotaDashboardComponent } from './pages/rota/rota-dashboard/rota-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +35,11 @@ import { MainComponent } from "./main/main.component";
     ConfirmRegistrationComponent,
     LoginComponent,
     AuthenticationComponent,
-    MainComponent
+    MainComponent,
+    RotaListComponent,
+    RotaTileComponent,
+    RotaFormComponent,
+    RotaDashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +51,8 @@ import { MainComponent } from "./main/main.component";
     AmplifyAngularModule,
     ToastrModule.forRoot({
       positionClass: "toast-bottom-center"
-    })
+    }),
+    FontAwesomeModule
   ],
   providers: [
     // AuthService,

@@ -16,11 +16,13 @@ export interface NewUser {
 export class AuthService {
   user: NewUser;
   authState: AuthState;
+  signedIn: boolean;
 
   constructor(private amplifyService: AmplifyService) {
     this.amplifyService.authStateChange$.subscribe({
       next: authState => {
         console.log(authState);
+        this.signedIn = (authState.state == 'signedIn')
         this.authState = authState;
       }
     });
@@ -66,4 +68,9 @@ export class AuthService {
   signOut(): Promise<any> {
     return this.amplifyService.auth().signOut();
   }
+
+  isSignedIn() {
+    console.log(this.authState)
+    return this.authState.state == 'signedIn'
+  } 
 }

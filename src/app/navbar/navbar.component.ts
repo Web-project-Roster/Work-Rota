@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../authentication/auth.service'
+import { ToastrService } from "ngx-toastr";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-navbar',
@@ -7,10 +10,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
   isNavbarCollapsed = true;
-  
-  constructor() { }
 
-  ngOnInit() {
+  constructor(public authService: AuthService,
+    private toastr: ToastrService,
+    private router: Router ) {
   }
 
+  ngOnInit() {
+
+  }
+
+  async logout() {
+    try {
+      await this.authService.signOut();
+      this.router.navigate(["auth/login"]);
+    } catch (err) {
+      this.toastr.error("There was a problem sigining you out");
+    }
+  }
 }

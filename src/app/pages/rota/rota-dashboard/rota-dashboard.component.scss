@@ -1,0 +1,14 @@
+.container {
+    width: 300px;
+    .rota-list {
+        .col-sm-4 {
+            padding: 7px;
+            .btn {
+                float: right;
+            }
+        }
+    }
+    hr {
+        margin-top: 0 !important;
+    }
+} 

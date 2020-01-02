@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
   async onLogin() {
     try {
       await this.authService.signIn(this.email.value, this.password.value);
-      this.router.navigate([""]);
+      this.router.navigate(["/rota"]);
     } catch (err) {
       this.toastr.error(err.message);
     }
