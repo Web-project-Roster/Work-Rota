@@ -7,6 +7,7 @@ import { AuthenticationComponent } from "./authentication/authentication.compone
 import { AuthGuard } from "./authentication/auth.guard";
 import { MainComponent } from "./main/main.component";
 import { RotaDashboardComponent } from './pages/rota/rota-dashboard/rota-dashboard.component'
+import { RotaFormComponent } from './pages/rota/rota-form/rota-form.component';
 
 const routes: Routes = [
   {
@@ -19,11 +20,20 @@ const routes: Routes = [
     ]
   },
   { 
-    path: "", component: 
-    MainComponent, 
+    path: "", 
+    component: MainComponent, 
     canActivate: [AuthGuard],
     children: [
-      { path: "rota", component: RotaDashboardComponent}
+      { 
+        path: "rota", 
+        component: RotaDashboardComponent,
+        children: [
+          {
+            path: "new",
+            component: RotaFormComponent
+          }
+        ]
+      }
       //{ Home }
       //{ profile } 
     ]

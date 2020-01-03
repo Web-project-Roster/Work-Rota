@@ -5,13 +5,15 @@
                 <h2>My Rotas</h2>
             </div>
             <div class="col-sm-4">
-                <button class="btn btn-icon margin-x-auto">Add Rota<fa-icon [icon]="faCalendarPlus" ></fa-icon></button>
+                <button (click)="newForm()" class="btn btn-icon margin-x-auto">Add Rota<fa-icon [icon]="faCalendarPlus" ></fa-icon></button>
             </div>
         </div>
         <hr>
     </div>
     <div class="col-sm-8">
-        
+        <div class="container-fluid">
+            <router-outlet></router-outlet>
+        </div>
     </div>
 </div>
 <div class="container">
