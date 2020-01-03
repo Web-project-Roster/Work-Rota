@@ -21,7 +21,6 @@ export class AuthService {
   constructor(private amplifyService: AmplifyService) {
     this.amplifyService.authStateChange$.subscribe({
       next: authState => {
-        console.log(authState);
         this.signedIn = (authState.state == 'signedIn')
         this.authState = authState;
       }
