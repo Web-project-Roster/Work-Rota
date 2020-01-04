@@ -7,7 +7,8 @@ import { AuthenticationComponent } from "./authentication/authentication.compone
 import { AuthGuard } from "./authentication/auth.guard";
 import { MainComponent } from "./main/main.component";
 import { RotaDashboardComponent } from './pages/rota/rota-dashboard/rota-dashboard.component'
-import { RotaFormComponent } from './pages/rota/rota-form/rota-form.component';
+import { RotaWeekFormComponent } from './pages/rota/rota-week-form/rota-week-form.component';
+import { RotaMainFormComponent } from './pages/rota/rota-main-form/rota-main-form.component';
 
 const routes: Routes = [
   {
@@ -29,8 +30,14 @@ const routes: Routes = [
         component: RotaDashboardComponent,
         children: [
           {
-            path: "new",
-            component: RotaFormComponent
+            path: "edit",
+            component: RotaWeekFormComponent,
+            outlet: 'rota-grid'
+          },
+          {
+            path: "edit",
+            component: RotaMainFormComponent,
+            outlet: "rota-shelf-left"
           }
         ]
       }

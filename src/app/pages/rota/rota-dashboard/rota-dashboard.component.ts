@@ -16,7 +16,7 @@ export class RotaDashboardComponent implements OnInit {
   }
 
   newForm() {
-    this.router.navigate(['rota/new'])
+    this.router.navigate([{outlets: {'rota-grid': 'edit' }}])
   }
 
 }
