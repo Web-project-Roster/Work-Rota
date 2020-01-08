@@ -9,6 +9,7 @@ import { MainComponent } from "./main/main.component";
 import { RotaDashboardComponent } from './pages/rota/rota-dashboard/rota-dashboard.component'
 import { RotaWeekFormComponent } from './pages/rota/rota-week-form/rota-week-form.component';
 import { RotaMainFormComponent } from './pages/rota/rota-main-form/rota-main-form.component';
+import { RotaListComponent } from './pages/rota/rota-list/rota-list.component';
 
 const routes: Routes = [
   {
@@ -29,6 +30,11 @@ const routes: Routes = [
         path: "rota", 
         component: RotaDashboardComponent,
         children: [
+          {
+            path: '',
+            component: RotaListComponent,
+            outlet: 'rota-shelf-left'
+          },
           {
             path: "edit",
             component: RotaWeekFormComponent,

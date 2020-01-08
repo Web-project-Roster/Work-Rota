@@ -1,1 +1,14 @@
-<p>rota-list works!</p>
+<div class="row rota-list">
+    <div class="col-sm-8 header-wrap">
+        <h2>My Rotas</h2>
+    </div>
+    <div class="col-sm-4 text-right">
+        <a [routerLink]="[{outlets: {'rota-grid': 'edit', 'rota-shelf-left': 'edit' }}]" class="btn btn-icon margin-x-auto round">
+            <fa-icon [icon]="faCalendarPlus" ></fa-icon>
+        </a>
+    </div>
+</div>
+<hr>
+<app-rota-tile>
+    
+</app-rota-tile>
