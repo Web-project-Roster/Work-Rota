@@ -22,10 +22,11 @@ import { ConfirmRegistrationComponent } from "./authentication/confirm-registrat
 import { LoginComponent } from "./authentication/login/login.component";
 import { AuthenticationComponent } from "./authentication/authentication.component";
 import { MainComponent } from "./main/main.component";
-import { RotaListComponent } from './pages/rota/rota-form/rota-list/rota-list.component'
+import { RotaListComponent } from './pages/rota/rota-list/rota-list.component'
 import { RotaTileComponent } from './pages/rota/rota-tile/rota-tile.component'
-import { RotaFormComponent } from './pages/rota/rota-form/rota-form.component'
+import { RotaWeekFormComponent } from './pages/rota/rota-week-form/rota-week-form.component'
 import { RotaDashboardComponent } from './pages/rota/rota-dashboard/rota-dashboard.component';
+import { RotaMainFormComponent } from './pages/rota/rota-main-form/rota-main-form.component';
 
 @NgModule({
   declarations: [
@@ -38,8 +39,9 @@ import { RotaDashboardComponent } from './pages/rota/rota-dashboard/rota-dashboa
     MainComponent,
     RotaListComponent,
     RotaTileComponent,
-    RotaFormComponent,
-    RotaDashboardComponent
+    RotaWeekFormComponent,
+    RotaDashboardComponent,
+    RotaMainFormComponent
   ],
   imports: [
     BrowserModule,

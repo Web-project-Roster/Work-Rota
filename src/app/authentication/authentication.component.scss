@@ -45,54 +45,10 @@
             width: 400px !important;
             top: 10%;
             right: 10%;
-
+    
             .routing-container {
                 position: relative;
             }
-        }
-    }
-
-    .form-container {
-        margin: 0;
-        height: 100%;
-        width: 100%;
-        position: fixed;
-        font-family: 'Roboto', sans-serif;
-        background-color: white;
-        box-shadow: 0px 5px 8px 4px rgba(0,0,0,0.75);
-    
-        .routing-container {
-            padding: 20px;
-            position: absolute;
-            left: 50%;
-            top: 45%;
-            transform: translate(-50%, -50%);
-        }
-        
-        .form-tabs-container {
-            height: 45px;
-            width: 100%;
-            position: absolute;
-            top: Calc(100% - 45px);
-        
-            .form-tab {
-                padding-top: 10px;
-                background: white;
-                box-shadow: inset 0 7px 9px -7px rgba(0,0,0,0.7);
-                border-radius: 0% !important;
-                width: 50%;
-                height: 100%;
-            }
-        
-            .form-tab:not(.active):hover, .form-tab:not(.active):hover { 
-                z-index: 0 !important;
-                background:  #f8f8f8;
-            }
-    
-            //override ng bootstrap properties
-            .form-tab.active { z-index: 1 !important; }
-            .form-tab.active:first-child, .form-tab.active:first-child:hover  { box-shadow: 1px 1px 5px -5px rgba(0,0,0,0.7); }
-            .form-tab.active:last-child, .form-tab.active:last-child:hover { box-shadow: -1px -1px 5px -5px rgba(0,0,0,0.7); }
         }
     }
 }

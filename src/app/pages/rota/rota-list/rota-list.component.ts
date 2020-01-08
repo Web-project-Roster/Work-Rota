@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { faCalendarPlus } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-rota-list',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./rota-list.component.scss']
 })
 export class RotaListComponent implements OnInit {
+  faCalendarPlus = faCalendarPlus
 
   constructor() { }
 

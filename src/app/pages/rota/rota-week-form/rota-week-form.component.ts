@@ -3,10 +3,10 @@ import { AuthService } from '../../../authentication/auth.service'
 
 @Component({
   selector: 'app-rota-form',
-  templateUrl: './rota-form.component.html',
-  styleUrls: ['./rota-form.component.scss']
+  templateUrl: './rota-week-form.component.html',
+  styleUrls: ['./rota-week-form.component.scss']
 })
-export class RotaFormComponent implements OnInit {
+export class RotaWeekFormComponent implements OnInit {
 
   constructor(service: AuthService) { 
     const user = service.currentAuthenticatedUser()

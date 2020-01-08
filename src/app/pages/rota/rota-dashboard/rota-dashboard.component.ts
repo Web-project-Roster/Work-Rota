@@ -8,15 +8,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./rota-dashboard.component.scss']
 })
 export class RotaDashboardComponent implements OnInit {
-  faCalendarPlus = faCalendarPlus
 
   constructor(private router: Router) { }
 
   ngOnInit() {
-  }
-
-  newForm() {
-    this.router.navigate(['rota/new'])
   }
 
 }
