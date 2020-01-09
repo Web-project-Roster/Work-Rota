@@ -10,6 +10,7 @@ import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { HttpModule } from '@angular/http'
 
 import { AppRoutingModule } from "./app-routing.module";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
@@ -54,7 +55,8 @@ import { RotaMainFormComponent } from './pages/rota/rota-main-form/rota-main-for
     ToastrModule.forRoot({
       positionClass: "toast-bottom-center"
     }),
-    FontAwesomeModule
+    FontAwesomeModule,
+    HttpModule
   ],
   providers: [
     // AuthService,

@@ -3,12 +3,14 @@
         <h2>My Rotas</h2>
     </div>
     <div class="col-sm-4 text-right">
-        <a [routerLink]="[{outlets: {'rota-grid': 'edit', 'rota-shelf-left': 'edit' }}]" class="btn btn-icon margin-x-auto round">
+        <a (click)="newRota()"  class="btn btn-icon margin-x-auto round">
             <fa-icon [icon]="faCalendarPlus" ></fa-icon>
         </a>
     </div>
 </div>
 <hr>
-<app-rota-tile>
+<div class="tile-wrap" *ngFor="let rota of rotas">
+    <app-rota-tile [rota]="rota">
     
-</app-rota-tile>
+    </app-rota-tile>
+</div>
