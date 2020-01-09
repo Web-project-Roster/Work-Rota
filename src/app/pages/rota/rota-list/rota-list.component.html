@@ -3,13 +3,13 @@
         <h2>My Rotas</h2>
     </div>
     <div class="col-sm-4 text-right">
-        <a (click)="newRota()"  class="btn btn-icon margin-x-auto round">
+        <a (click)="NewRota()"  class="btn btn-icon margin-x-auto round">
             <fa-icon [icon]="faCalendarPlus" ></fa-icon>
         </a>
     </div>
 </div>
 <hr>
-<div class="tile-wrap" *ngFor="let rota of rotas">
+<div class="tile-wrap" *ngFor="let rota of rotas; let i = index">
     <app-rota-tile [rota]="rota">
     
     </app-rota-tile>

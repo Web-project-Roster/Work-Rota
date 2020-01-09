@@ -1,43 +1,39 @@
-.header {
-    height: 45px;
-}
-
-
-.days-row {
+.grid-container {
     border-top-left-radius: 15px;
-    padding: 6px;
-    height: 40px;
-}
 
-// .rota-rename-button {
-//     background-color: transparent !important;
-//     padding: 5px 0;
-//     width: fit-content;
-//     height: 28px !important;
-//     border-radius: 5px !important;
-//     box-shadow: none !important;
-//     transition: all 0s !important;
-// }
+    .days-row {
+        padding: 6px;
+        height: 40px;
+        border-bottom: 1px solid #2A00AA;
 
-// .rota-rename-button:hover {
-//     background-color: rgba(0, 0, 0, 0.4) !important;
-//     // box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.75) !important;
-// }
-
-// .rota-rename {
-//     display: none;
-// }
-
-.user {
-    height: 35px;
-    margin: 0 !important;
-
-    .time-grid {
-        padding: 0 !important;
+        .rota-heading {
+            font-size: 18px;
+            color: white;
+            padding: 4px 10px;
+            height: 28px !important;
+        }
     }
 
-    .unit {
-        
-        border-bottom: 1px solid grey;
+    .user {
+        margin: 0 !important;
+        height: fit-content;
+    
+        .time-row {
+            height: 50px;
+            padding: 0 !important;
+            display: flex;
+            flex-wrap: wrap;
+
+            .unit-name {
+                color: white;
+                border-bottom: 1px solid #2A00AA;
+            }
+
+            .unit {
+                background-color: white;
+                border-bottom: 1px solid #2A00AA;
+                border-right: 1px solid #2A00AA;;
+            }
+        }
     }
 }

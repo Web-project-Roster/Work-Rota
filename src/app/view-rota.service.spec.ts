@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { RotaService } from './rota.service';
+import { ViewRotaService } from './view-rota.service';
 
-describe('RotaService', () => {
+describe('ViewRotaService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: RotaService = TestBed.get(RotaService);
+    const service: ViewRotaService = TestBed.get(ViewRotaService);
     expect(service).toBeTruthy();
   });
 });

@@ -52,8 +52,6 @@ const routes: Routes = [
           }
         ]
       }
-      //{ Home }
-      //{ profile } 
     ]
   }
 ];
