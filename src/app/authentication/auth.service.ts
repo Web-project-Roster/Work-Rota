@@ -27,7 +27,7 @@ export class AuthService {
     });
   }
 
-  async currentAuthenticatedUser(): Promise<CognitoUser | any> {
+  async currentAuthenticatedUser(): Promise<CognitoUser> {
     return this.amplifyService.auth().currentAuthenticatedUser();
   }
 

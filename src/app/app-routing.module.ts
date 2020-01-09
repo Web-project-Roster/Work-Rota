@@ -36,6 +36,11 @@ const routes: Routes = [
             outlet: 'rota-shelf-left'
           },
           {
+            path: 'view',
+            component: RotaListComponent,
+            outlet: 'rota-shelf-left'
+          },
+          {
             path: "edit",
             component: RotaWeekFormComponent,
             outlet: 'rota-grid'
