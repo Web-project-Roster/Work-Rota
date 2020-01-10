@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core'
-import { AuthService } from '../../../authentication/auth.service'
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../../authentication/auth.service';
 
 @Component({
   selector: 'app-rota-form',
@@ -8,13 +8,13 @@ import { AuthService } from '../../../authentication/auth.service'
 })
 export class RotaFormComponent implements OnInit {
 
-  constructor(service: AuthService) { 
-    const user = service.currentAuthenticatedUser()
-    console.log(user)
+  constructor(service: AuthService) {
+    const user = service.currentAuthenticatedUser();
+    console.log(user);
   }
 
   ngOnInit() {
-    
+
   }
 
 }

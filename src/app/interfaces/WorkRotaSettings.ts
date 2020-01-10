@@ -1,8 +1,9 @@
 import { User } from './User';
 
-export interface WorkRotaBlueprint {
-    id?: string;
+export interface WorkRotaSettings {
+    rotaId?: string;
     name: string;
     users: User[];
     manager: User;
+    workingHours: string;
 }

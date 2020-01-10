@@ -1,7 +1,7 @@
-import { Injectable } from "@angular/core";
-import { AmplifyService } from "aws-amplify-angular";
-import { CognitoUser } from "amazon-cognito-identity-js";
-import { AuthState } from "aws-amplify-angular/dist/src/providers";
+import { Injectable } from '@angular/core';
+import { AmplifyService } from 'aws-amplify-angular';
+import { CognitoUser } from 'amazon-cognito-identity-js';
+import { AuthState } from 'aws-amplify-angular/dist/src/providers';
 
 export interface NewUser {
   email: string;
@@ -11,7 +11,7 @@ export interface NewUser {
 }
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class AuthService {
   user: NewUser;
@@ -21,7 +21,7 @@ export class AuthService {
   constructor(private amplifyService: AmplifyService) {
     this.amplifyService.authStateChange$.subscribe({
       next: authState => {
-        this.signedIn = (authState.state == 'signedIn')
+        this.signedIn = (authState.state === 'signedIn');
         this.authState = authState;
       }
     });
@@ -69,7 +69,7 @@ export class AuthService {
   }
 
   isSignedIn() {
-    console.log(this.authState)
-    return this.authState.state == 'signedIn'
-  } 
+    console.log(this.authState);
+    return this.authState.state === 'signedIn';
+  }
 }
