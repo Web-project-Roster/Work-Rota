@@ -1,7 +1,11 @@
+import { UserService } from './../services/user.service';
+import { WorkRotaSettings } from './../interfaces/WorkRotaSettings';
+import { WorkRotaService } from './../services/work-rota.service';
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../authentication/auth.service'
-import { ToastrService } from "ngx-toastr";
-import { Router } from "@angular/router";
+import { AuthService } from '../authentication/auth.service';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-navbar',
@@ -12,8 +16,8 @@ export class NavbarComponent implements OnInit {
   isNavbarCollapsed = true;
 
   constructor(public authService: AuthService,
-    private toastr: ToastrService,
-    private router: Router ) {
+              private toastr: ToastrService,
+              private router: Router ) {
   }
 
   ngOnInit() {
@@ -23,9 +27,9 @@ export class NavbarComponent implements OnInit {
   async logout() {
     try {
       await this.authService.signOut();
-      this.router.navigate(["auth/login"]);
+      this.router.navigate(['auth/login']);
     } catch (err) {
-      this.toastr.error("There was a problem sigining you out");
+      this.toastr.error('There was a problem sigining you out');
     }
   }
 }
