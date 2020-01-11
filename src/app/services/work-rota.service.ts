@@ -1,7 +1,6 @@
-import { AuthService } from './../authentication/auth.service';
+import { WorkRotaWeek, NewRotaWeek } from './../interfaces/WorkRotaWeek';
 import { WorkRotaSettings } from './../interfaces/WorkRotaSettings';
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { API } from 'aws-amplify';
 
 
@@ -9,43 +8,44 @@ import { API } from 'aws-amplify';
   providedIn: 'root'
 })
 export class WorkRotaService {
-  apiUrl = 'https://a3pzcoway8.execute-api.eu-west-1.amazonaws.com/prod/rotas';
+  apiName = 'prod-users-api';
 
-  constructor(private http: HttpClient) { }
+  constructor() { }
 
-  public createRotaSettings(workRota: WorkRotaSettings) {
-    // this.http.post(`${this.apiUrl}/settings`, workRota).subscribe(
-    //   (val) => {
-    //     console.log('Rota creation was successful');
-    //     return val;
-    //   },
-    //   (error) => {
-    //     console.log('Error', error);
-    //     return error;
-    //   }
-    // );
-    // return true;
-    return API.post('prod-users-api', '/rotas', workRota);
+  createRotaSettings(workRotaSettings: WorkRotaSettings): Promise<void> {
+    return API.post(this.apiName, '/rotas/settings', {
+      body: workRotaSettings
+    });
   }
 
-  public updateRotaBluePrint(workRota: WorkRotaSettings) {
-
+  updateRotaSettings(workRotaSettings: WorkRotaSettings): Promise<void> {
+    const params = {
+      body: workRotaSettings
+    };
+    return API.put(this.apiName, '/rotas/settings', params);
   }
 
-  public deleteRota(id: string) {
-
+  getRotaSettings(rotaId: string): Promise<WorkRotaSettings> {
+    rotaId = rotaId.split('#')[1];
+    return API.get(this.apiName, `/rotas/settings/${rotaId}`, '');
   }
 
-  public getRotasForCurrentUser() {
-    return this.http.get(this.apiUrl);
+  getRotasForCurrentUser(): Promise<WorkRotaWeek[]> {
+    return API.get(this.apiName, '/rotas', '');
   }
 
-  public getRotaByWeek(id: string, weekNo: string) {
-
+  generateRotaWeek(newRota: NewRotaWeek): Promise<void> {
+    const params = {
+      body: newRota
+    };
+    return API.post(this.apiName, '/rotas/week', params);
   }
 
-  public updateRotaWeek(workRota: WorkRotaSettings) {
-
+  updateRotaWeek(workRotaWeek: WorkRotaWeek): Promise<void> {
+    const params = {
+      body: workRotaWeek
+    };
+    return API.put(this.apiName, '/rotas/week', params);
   }
 
 }

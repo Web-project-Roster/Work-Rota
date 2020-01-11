@@ -1,9 +1,10 @@
-import { User } from './User';
+import { User, Manager } from './User';
 
 export interface WorkRotaSettings {
-    rotaId?: string;
+    pk?: string;
+    sk?: string;
     name: string;
     users: User[];
-    manager: User;
+    manager?: Manager;
     workingHours: string;
 }

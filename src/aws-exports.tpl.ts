@@ -4,6 +4,15 @@ const config = {
       region: '',
       userPoolId: '',
       userPoolWebClientId: ''
+    },
+    API: {
+      endpoints: [
+        {
+          name: '',
+          endpoint: '',
+          region: ''
+        }
+      ]
     }
 };
 
