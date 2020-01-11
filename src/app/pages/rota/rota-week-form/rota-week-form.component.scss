@@ -1,0 +1,39 @@
+.grid-container {
+    border-top-left-radius: 15px;
+
+    .days-row {
+        padding: 6px;
+        height: 40px;
+        border-bottom: 1px solid #2A00AA;
+
+        .rota-heading {
+            font-size: 18px;
+            color: white;
+            padding: 4px 10px;
+            height: 28px !important;
+        }
+    }
+
+    .user {
+        margin: 0 !important;
+        height: fit-content;
+    
+        .time-row {
+            height: 50px;
+            padding: 0 !important;
+            display: flex;
+            flex-wrap: wrap;
+
+            .unit-name {
+                color: white;
+                border-bottom: 1px solid #2A00AA;
+            }
+
+            .unit {
+                background-color: white;
+                border-bottom: 1px solid #2A00AA;
+                border-right: 1px solid #2A00AA;;
+            }
+        }
+    }
+}

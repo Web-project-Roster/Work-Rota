@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RotaFormComponent } from './rota-form.component';
+import { RotaMainFormComponent } from './rota-main-form.component';
 
-describe('RotaFormComponent', () => {
-  let component: RotaFormComponent;
-  let fixture: ComponentFixture<RotaFormComponent>;
+describe('RotaMainFormComponent', () => {
+  let component: RotaMainFormComponent;
+  let fixture: ComponentFixture<RotaMainFormComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RotaFormComponent ]
+      declarations: [ RotaMainFormComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RotaFormComponent);
+    fixture = TestBed.createComponent(RotaMainFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
