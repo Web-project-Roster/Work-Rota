@@ -44,21 +44,28 @@ export class RotaMainFormComponent implements OnInit {
   }
 
   async getUserByEmail(email: string) {
-    this.fetchingUser = true;
-    const user = await this.userService.searchUserByEmailForNewRota(email);
-    this.fetchingUser = false;
+    if (email !== '') {
+      try {
+        this.fetchingUser = true;
+        const user = await this.userService.searchUserByEmailForNewRota(email);
+        this.fetchingUser = false;
 
-    if (!user) {
-      this.toastr.error('User not found');
-    } else {
-      const userIncluded = this.users.some(u => u.userId === user.userId);
+        const userIncluded = this.users.some(u => u.userId === user.userId);
 
-      if (!userIncluded) {
-        this.users.push(user);
-        this.toastr.info('User added');
-      } else {
-        this.toastr.error('User is already added');
+        if (!userIncluded) {
+            this.users.push(user);
+            this.toastr.info('User added');
+            this.fetchingUser = false;
+          } else {
+            this.toastr.error('User is already added');
+            this.fetchingUser = false;
+          }
+      } catch (err) {
+        this.toastr.error('User not found');
+        this.fetchingUser = false;
       }
+    } else {
+      this.toastr.error('You must fill in a value for email to add it');
     }
   }
 
@@ -100,9 +107,5 @@ export class RotaMainFormComponent implements OnInit {
     } catch (err) {
       this.toastr.error(err);
     }
-
-    this.submitted = true;
-
   }
-
 }
