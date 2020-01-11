@@ -1,3 +1,4 @@
+import { NgxSpinnerService } from 'ngx-spinner';
 import { Validators } from '@angular/forms';
 import { WorkRotaService } from './../../../services/work-rota.service';
 import { User } from './../../../interfaces/User';
@@ -6,9 +7,7 @@ import { Component, OnInit } from '@angular/core';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { AuthService } from 'src/app/authentication/auth.service';
 import { ToastrService } from 'ngx-toastr';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-rota-main-form',
@@ -20,6 +19,7 @@ export class RotaMainFormComponent implements OnInit {
   newRotaForm: FormGroup;
   users: User[] = [];
   submitted = false;
+  fetchingUser = false;
 
 
   constructor(
@@ -27,7 +27,8 @@ export class RotaMainFormComponent implements OnInit {
     private router: Router,
     private toastr: ToastrService,
     private userService: UserService,
-    private rotaService: WorkRotaService
+    private rotaService: WorkRotaService,
+    private ngxSpinner: NgxSpinnerService
   ) {}
 
   ngOnInit() {
@@ -43,7 +44,9 @@ export class RotaMainFormComponent implements OnInit {
   }
 
   async getUserByEmail(email: string) {
+    this.fetchingUser = true;
     const user = await this.userService.searchUserByEmailForNewRota(email);
+    this.fetchingUser = false;
 
     if (!user) {
       this.toastr.error('User not found');
@@ -86,11 +89,14 @@ export class RotaMainFormComponent implements OnInit {
     }
     const hours = this.getWorkingHours(this.startTime.value, this.endTime.value);
     try {
+      this.ngxSpinner.show();
       await this.rotaService.createRotaSettings({
         name: this.rotaName.value,
         users: this.users,
         workingHours: hours
       });
+      this.toDashboard();
+      this.ngxSpinner.hide();
     } catch (err) {
       this.toastr.error(err);
     }

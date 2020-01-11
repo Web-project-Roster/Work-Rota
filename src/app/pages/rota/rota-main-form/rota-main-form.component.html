@@ -21,6 +21,8 @@
                     add
                 </button>               
             </form>
+            <app-spinner [loading]="fetchingUser"></app-spinner>
+            <ngx-spinner color="#fff" type="ball-scale-multiple"></ngx-spinner>
             <div *ngIf="users?.length">
                 <label>Users</label>
                 <ul *ngFor="let user of users; let i = index">
