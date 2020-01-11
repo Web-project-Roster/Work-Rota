@@ -30,7 +30,7 @@ export class WorkRotaService {
     return API.get(this.apiName, `/rotas/settings/${rotaId}`, '');
   }
 
-  getRotasForCurrentUser(): Promise<WorkRotaWeek[]> {
+  getRotasForCurrentUser(): Promise<object[]> {
     return API.get(this.apiName, '/rotas', '');
   }
 

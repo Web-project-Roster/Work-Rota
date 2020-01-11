@@ -5,25 +5,51 @@
         <div class="form-header">
             <span class="rota-form-heading">Create New Rota</span>
         </div>
-        <div class="form-input-container">
+        <form [formGroup]="newRotaForm" (ngSubmit)="createNewRota()" class="form-input-container">
             <div class="form-group">
                 <label for="rotaName">Rota Name</label>
-                <input type="text" class="form-control" id="rotaName" placeholder="Name">
+                <input type="text" class="form-control" id="rotaName" placeholder="Name" formControlName="rotaName"
+                [ngClass]="{ 'is-invalid': submitted && rotaName.errors }">
+                <div *ngIf="submitted && rotaName.errors" class="invalid-feedback">
+                    <div *ngIf="rotaName.errors.required">Rota is required</div>
+                </div>
             </div>
-            <div class="form-group">
-                <label for="Email">Add User by Email</label>
-                <input type="text" class="form-control" id="Email" placeholder="Users Email">
+            <label for="email">Add User by Email</label>
+            <form class="form-inline">
+                <input type="text" class="form-control" id="email" placeholder="Users Email" #emailAddress>
+                <button (click)="getUserByEmail(emailAddress.value)" type="submit" class="mx-auto btn btn-primary">
+                    add
+                </button>               
+            </form>
+            <div *ngIf="users?.length">
+                <label>Users</label>
+                <ul *ngFor="let user of users; let i = index">
+                    <li class="user">
+                        {{user.email}} <span class="close" (click)="removeUser(i)">x</span>
+                    </li>
+                </ul>
             </div>
             <div class="form-row">
                 <div class="form-group col-sm-6">
                     <label for="timestart">Beginning</label>
-                    <input type="time" class="form-control" id="timestart" placeholder="Start">
+                    <input type="time" class="form-control" id="timeStart" placeholder="Start" formControlName="startTime"
+                    [ngClass]="{ 'is-invalid': submitted && startTime.errors }">
+                    <div *ngIf="submitted && startTime.errors" class="invalid-feedback">
+                        <div *ngIf="startTime.errors.required">Start time is required</div>
+                    </div>
                 </div>
                 <div class="form-group col-sm-6">
                     <label for="timeend">End</label>
-                    <input type="time" class="form-control" id="timeend" placeholder="Name">
+                    <input type="time" class="form-control" id="timeEnd" placeholder="Name" formControlName="endTime" 
+                    [ngClass]="{ 'is-invalid': submitted && endTime.errors }">
+                    <div *ngIf="submitted && endTime.errors" class="invalid-feedback">
+                        <div *ngIf="endTime.errors.required">End time is required</div>
+                    </div>
                 </div>
             </div>
-        </div>
+            <div class="btn-wrap">
+                <button class="mx-auto btn btn-primary" type="submit">Create</button>
+            </div>
+        </form>
     </div>
 </div>

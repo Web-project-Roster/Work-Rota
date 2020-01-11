@@ -15,6 +15,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -55,10 +56,11 @@ import { RotaWeekFormComponent } from './pages/rota/rota-week-form/rota-week-for
     BrowserAnimationsModule,
     AmplifyAngularModule,
     ToastrModule.forRoot({
-      positionClass: 'toast-bottom-center'
+      positionClass: 'toast-top-center'
     }),
     FontAwesomeModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxSpinnerModule
   ],
   providers: [
     // AuthService,
