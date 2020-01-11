@@ -17,70 +17,11 @@ export class NavbarComponent implements OnInit {
 
   constructor(public authService: AuthService,
               private toastr: ToastrService,
-              private router: Router,
-              private workRotaService: WorkRotaService,
-              private userService: UserService ) {
+              private router: Router ) {
   }
 
   ngOnInit() {
 
-  }
-
-  async createRota() {
-    // const rota: WorkRotaSettings = {
-    //   pk: 'rota#2cc40336-e83c-48e7-acd6-b440729c018c',
-    //   sk: 'rota#2cc40336-e83c-48e7-acd6-b440729c018c',
-    //   manager: {
-    //     email: 'briankeaveney@hotmail.com',
-    //     fname: 'brian',
-    //     lname: 'keaveney'
-    //   },
-    //   name: 'test6 rota',
-    //   users: [
-    //     {
-    //       fname: 'Stephen',
-    //       lname: 'Keaveney',
-    //       userId: '4bd601ce-0c0e-46d0-9217-17dccf4fab26'
-    //     },
-    //     {
-    //       fname: 'Stephen',
-    //       lname: 'Keaveney',
-    //       userId: '4bd601ce-0c0e-46d0-9217-17dccf4fab26'
-    //     },
-    //   ],
-    //   workingHours: '9-4'
-    // };
-
-    // const rota: WorkRotaSettings = {
-    //   name: 'first rota',
-    //   workingHours: '9-5',
-    //   users: [
-    //     {
-    //       fname: 'brian',
-    //       lname: 'keaveney',
-    //       userId: '4bd601ce-0c0e-46d0-9217-17dccf4fab26'
-    //     }
-    //   ]
-    // };
-    try {
-      // await this.workRotaService.createRotaSettings(rota);
-      // const result = await this.workRotaService.getRotasForCurrentUser();
-      // console.log(result);
-        // await this.workRotaService.updateRotaSettings(rota);
-        // const rotas = await this.workRotaService.getRotasForCurrentUser();
-        // const user = await this.userService.searchUserByEmail('briankeaveney@hotmail.com', 'rota#2cc40336-e83c-48e7-acd6-b440729c018c');
-        // console.log(user);
-
-    } catch (err) {
-      console.log(err);
-    }
-
-    // this.workRotaService.getRotasForCurrentUser().subscribe(
-    //   (val) => {
-    //     console.log(val);
-    //   }
-    // );
-    console.log('finished request');
   }
 
   async logout() {
