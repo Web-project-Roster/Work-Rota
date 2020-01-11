@@ -82,8 +82,54 @@ export class RotaListComponent implements OnInit {
         surName: 'Sweeney',
         userId: 'akdjflka-1983-1kjns'
       }
-    }
-  ];
+    },
+    {
+      id: 4,
+      name: 'Chinese',
+      users:  [
+        {
+          firstName: "Brian",
+          surName: "keaveney",
+          userId: "akdjflka-1983-1kjns"
+        },
+        {
+          firstName: "Conor",
+          surName: "doherty",
+          userId: "asjfoie-921-1kjnasfasfd"
+        }
+      ],
+      dayStart: new Date('January 1, 1975 09:00:00'),
+      dayEnd: new Date('January 1, 1975 17:00:00'),
+      manager: {
+        firstName: "Ronan",
+        surName: "McCabe",
+        userId: "akdjflka-1983-1kjns"
+      }
+    }, 
+    {
+      id: 5,
+      name: 'IT Sligo',
+      users:  [
+        {
+          firstName: "Brian",
+          surName: "keaveney",
+          userId: "akdjflka-1983-1kjns"
+        },
+        {
+          firstName: "Conor",
+          surName: "doherty",
+          userId: "asjfoie-921-1kjnasfasfd"
+        }
+      ],
+      dayStart: new Date('January 1, 1975 09:00:00'),
+      dayEnd: new Date('January 1, 1975 17:00:00'),
+      manager: {
+        firstName: "Ronan",
+        surName: "McCabe",
+        userId: "akdjflka-1983-1kjns"
+      }
+    } 
+  ]
 
   NewRota() {
     this.viewRotaService.selectedRota.setValue({});
@@ -91,8 +137,6 @@ export class RotaListComponent implements OnInit {
   }
 
   ngOnInit() {
+    
   }
-
-
-
 }

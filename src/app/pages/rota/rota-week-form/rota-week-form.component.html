@@ -2,33 +2,13 @@
         <div class="days-row">
             <span class="rota-heading" >{{rota.value.name}}</span>
         </div>
-        
-
-        <div *ngFor="let user of rota.value.users" class="user">
-            <div class="time-row">
+        <div *ngFor="let user of rota.value.users; let i = index" class="user">
+            <div class="time-row" [attr.id]="i">
                 <div class="col-sm-2 col-xs-12 unit-name">
                     {{user.firstName}}<br>{{user.surName}}
                 </div>
-                <div class="unit col">
-
-                </div>
-                <div class="unit col">
-                    
-                </div>
-                <div class="unit col">
-                    
-                </div>
-                <div class="unit col">
-                    
-                </div>
-                <div class="unit col">
-                    
-                </div>
-                <div class="unit col">
-                    
-                </div>
-                <div class="unit col">
-                    
+                <div class="unit col" *ngFor="let day of week.days; let d = index">
+                    <app-rota-grid-item [user]="user" [userData]="day[i]" (insertUser)="insertUser($event, d, i)" (editTimes)="editTimes($event, d, i)" ></app-rota-grid-item>
                 </div>
             </div>
         </div>

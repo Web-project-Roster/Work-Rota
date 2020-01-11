@@ -9,8 +9,11 @@
     </div>
 </div>
 <hr>
-<div class="tile-wrap" *ngFor="let rota of rotas; let i = index">
-    <app-rota-tile [rota]="rota">
-    
-    </app-rota-tile>
+<div class="list-wrap">
+    <div class="tile-container" *ngFor="let rota of rotas">
+            <app-rota-tile [rota]="rota">
+            
+            </app-rota-tile>
+    </div>
 </div>
+

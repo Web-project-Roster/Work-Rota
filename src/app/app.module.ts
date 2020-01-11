@@ -27,8 +27,8 @@ import { RotaListComponent } from './pages/rota/rota-list/rota-list.component';
 import { RotaTileComponent } from './pages/rota/rota-tile/rota-tile.component';
 import { RotaDashboardComponent } from './pages/rota/rota-dashboard/rota-dashboard.component';
 import { RotaMainFormComponent } from './pages/rota/rota-main-form/rota-main-form.component';
+import { RotaGridItemComponent } from './rota-grid-item/rota-grid-item.component';
 import { RotaWeekFormComponent } from './pages/rota/rota-week-form/rota-week-form.component';
-
 
 @NgModule({
   declarations: [
@@ -43,6 +43,7 @@ import { RotaWeekFormComponent } from './pages/rota/rota-week-form/rota-week-for
     RotaTileComponent,
     RotaDashboardComponent,
     RotaMainFormComponent,
+    RotaGridItemComponent,
     RotaWeekFormComponent
   ],
   imports: [
