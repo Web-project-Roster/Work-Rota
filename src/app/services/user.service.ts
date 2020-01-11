@@ -10,8 +10,12 @@ export class UserService {
 
   constructor() { }
 
-  searchUserByEmail(email: string, rotaId): Promise<User> {
+  searchUserByEmail(email: string, rotaId: string): Promise<User> {
     rotaId = rotaId.split('#')[1];
     return API.get(this.apiName, `/users/search/${rotaId}?email=${email}`, '');
+  }
+
+  searchUserByEmailForNewRota(email: string): Promise<User> {
+    return API.get(this.apiName, `/users/search?email=${email}`, '');
   }
 }
