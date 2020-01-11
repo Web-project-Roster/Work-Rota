@@ -11,13 +11,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { HttpModule } from '@angular/http'
 
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 
-<<<<<<< HEAD
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { RegistrationComponent } from './authentication/registration/registration.component';
@@ -25,23 +23,12 @@ import { ConfirmRegistrationComponent } from './authentication/confirm-registrat
 import { LoginComponent } from './authentication/login/login.component';
 import { AuthenticationComponent } from './authentication/authentication.component';
 import { MainComponent } from './main/main.component';
-import { RotaListComponent } from './pages/rota/rota-form/rota-list/rota-list.component';
+import { RotaListComponent } from './pages/rota/rota-list/rota-list.component';
 import { RotaTileComponent } from './pages/rota/rota-tile/rota-tile.component';
-import { RotaFormComponent } from './pages/rota/rota-form/rota-form.component';
-=======
-import { AppComponent } from "./app.component";
-import { NavbarComponent } from "./navbar/navbar.component";
-import { RegistrationComponent } from "./authentication/registration/registration.component";
-import { ConfirmRegistrationComponent } from "./authentication/confirm-registration/confirm-registration.component";
-import { LoginComponent } from "./authentication/login/login.component";
-import { AuthenticationComponent } from "./authentication/authentication.component";
-import { MainComponent } from "./main/main.component";
-import { RotaListComponent } from './pages/rota/rota-list/rota-list.component'
-import { RotaTileComponent } from './pages/rota/rota-tile/rota-tile.component'
-import { RotaWeekFormComponent } from './pages/rota/rota-week-form/rota-week-form.component'
->>>>>>> 3dc53194967ef309d486a58cd3bb2375a9d31c23
 import { RotaDashboardComponent } from './pages/rota/rota-dashboard/rota-dashboard.component';
 import { RotaMainFormComponent } from './pages/rota/rota-main-form/rota-main-form.component';
+import { RotaWeekFormComponent } from './pages/rota/rota-week-form/rota-week-form.component';
+
 
 @NgModule({
   declarations: [
@@ -54,9 +41,9 @@ import { RotaMainFormComponent } from './pages/rota/rota-main-form/rota-main-for
     MainComponent,
     RotaListComponent,
     RotaTileComponent,
-    RotaWeekFormComponent,
     RotaDashboardComponent,
-    RotaMainFormComponent
+    RotaMainFormComponent,
+    RotaWeekFormComponent
   ],
   imports: [
     BrowserModule,
@@ -70,11 +57,7 @@ import { RotaMainFormComponent } from './pages/rota/rota-main-form/rota-main-for
       positionClass: 'toast-bottom-center'
     }),
     FontAwesomeModule,
-<<<<<<< HEAD
     HttpClientModule
-=======
-    HttpModule
->>>>>>> 3dc53194967ef309d486a58cd3bb2375a9d31c23
   ],
   providers: [
     // AuthService,
