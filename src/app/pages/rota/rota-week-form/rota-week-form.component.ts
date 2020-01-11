@@ -143,18 +143,8 @@ export class RotaWeekFormComponent implements OnInit {
     this.week.days[dayIndex].splice(userIndex, 0, user)
   }
 
-  // checkUser(weekUser, user, weekday, userIndex ) {
-  //   if (!weekUser || weekUser.userId != user.userId) {
-  //     
-  //     console.log(this.week)
-  //   }
-  //   return true
-  // }
-
   editTimes(workingHours, dayIndex, userIndex) {
-    console.log('hello')
     this.week.days[dayIndex][userIndex].timeStart = workingHours.timeStart
     this.week.days[dayIndex][userIndex].timeEnd = workingHours.timeEnd
-    console.log(this.week)
   }
 }

@@ -34,7 +34,6 @@ export class RotaGridItemComponent implements OnInit {
   }
 
   showForm() {
-    console.log(this.userData)
     this.edit = true
   }
 
@@ -45,7 +44,6 @@ export class RotaGridItemComponent implements OnInit {
   constructor(private eRef: ElementRef) { }
   
   ngOnInit() {
-    console.log(this.userData)
     if (!this.userData || this.userData.userId != this.user.userId) {
       this.userData = this.user
       this.insertUser.emit(this.user)

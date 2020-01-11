@@ -9,9 +9,6 @@
                 </div>
                 <div class="unit col" *ngFor="let day of week.days; let d = index">
                     <app-rota-grid-item [user]="user" [userData]="day[i]" (insertUser)="insertUser($event, d, i)" (editTimes)="editTimes($event, d, i)" ></app-rota-grid-item>
-                    <!-- <div class="grid-btn" *ngIf="checkUser(day[i], user, d, i) " (click)="editTime(d, i)" >
-                        {{day[i].timeStart}} {{day[i].timeEnd}}
-                    </div> -->
                 </div>
             </div>
         </div>

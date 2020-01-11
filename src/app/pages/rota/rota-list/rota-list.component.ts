@@ -89,33 +89,56 @@ export class RotaListComponent implements OnInit {
         surName: "Sweeney",
         userId: "akdjflka-1983-1kjns"
       }
+    },
+    {
+      id: 4,
+      name: 'Chinese',
+      users:  [
+        {
+          firstName: "Brian",
+          surName: "keaveney",
+          userId: "akdjflka-1983-1kjns"
+        },
+        {
+          firstName: "Conor",
+          surName: "doherty",
+          userId: "asjfoie-921-1kjnasfasfd"
+        }
+      ],
+      dayStart: new Date('January 1, 1975 09:00:00'),
+      dayEnd: new Date('January 1, 1975 17:00:00'),
+      manager: {
+        firstName: "Ronan",
+        surName: "McCabe",
+        userId: "akdjflka-1983-1kjns"
+      }
+    }, 
+    {
+      id: 5,
+      name: 'IT Sligo',
+      users:  [
+        {
+          firstName: "Brian",
+          surName: "keaveney",
+          userId: "akdjflka-1983-1kjns"
+        },
+        {
+          firstName: "Conor",
+          surName: "doherty",
+          userId: "asjfoie-921-1kjnasfasfd"
+        }
+      ],
+      dayStart: new Date('January 1, 1975 09:00:00'),
+      dayEnd: new Date('January 1, 1975 17:00:00'),
+      manager: {
+        firstName: "Ronan",
+        surName: "McCabe",
+        userId: "akdjflka-1983-1kjns"
+      }
     } 
   ]
 
   ngOnInit() {
-    const context = this;
-    var user = this.auth.currentAuthenticatedUser().then(function(u) {
-      //Man never keeps his promises >:)
-      u.getSession((err, session) => {
-        if (err) return
-        
-        const token = session.getIdToken().getJwtToken()
 
-        const header = new Headers()
-        header.append('Authorization', token)
-
-        context.http.get('http://localhost:3000/rotas').subscribe(
-          response => {
-            console.log(response.json())
-          },
-          error => {
-            console.log(error);
-          }
-        )
-      })
-    });
   }
-
-  
-
 }
