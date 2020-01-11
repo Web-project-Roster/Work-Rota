@@ -1,0 +1,13 @@
+<div class="grid-times" *ngIf="!edit; else editForm" (mouseup)="showForm()">
+    {{userData.timeStart}} 
+    {{userData.timeEnd}}
+</div>
+<ng-template  #editForm >
+    <div (focusout)="closeForm($event)">
+        <input type="time" class="grid-times-form" [formControl]="timeStart">
+        <input type="time" class="grid-times-form" [formControl]="timeEnd">
+        <button class="round" (click)="submitTimes()">
+            <fa-icon [icon]="faCheck" ></fa-icon>
+        </button>
+    </div>
+</ng-template>

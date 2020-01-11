@@ -28,6 +28,7 @@ import { RotaTileComponent } from './pages/rota/rota-tile/rota-tile.component'
 import { RotaWeekFormComponent } from './pages/rota/rota-week-form/rota-week-form.component'
 import { RotaDashboardComponent } from './pages/rota/rota-dashboard/rota-dashboard.component';
 import { RotaMainFormComponent } from './pages/rota/rota-main-form/rota-main-form.component';
+import { RotaGridItemComponent } from './rota-grid-item/rota-grid-item.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { RotaMainFormComponent } from './pages/rota/rota-main-form/rota-main-for
     RotaTileComponent,
     RotaWeekFormComponent,
     RotaDashboardComponent,
-    RotaMainFormComponent
+    RotaMainFormComponent,
+    RotaGridItemComponent
   ],
   imports: [
     BrowserModule,
