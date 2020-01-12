@@ -46,11 +46,12 @@
                     [ngClass]="{ 'is-invalid': submitted && endTime.errors }">
                     <div *ngIf="submitted && endTime.errors" class="invalid-feedback">
                         <div *ngIf="endTime.errors.required">End time is required</div>
+                        <div *ngIf="endTime.errors.validateTimes">End time must be after start time</div>
                     </div>
                 </div>
             </div>
             <div class="btn-wrap">
-                <button class="mx-auto btn btn-primary" type="submit">Create</button>
+                <button class="mx-auto btn btn-primary" type="submit" id="rotaSubmit">Create</button>
             </div>
         </form>
     </div>

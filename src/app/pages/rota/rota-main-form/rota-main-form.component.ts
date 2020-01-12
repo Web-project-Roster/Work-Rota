@@ -1,5 +1,6 @@
+import { WorkRotaSettings } from './../../../interfaces/WorkRotaSettings';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { Validators } from '@angular/forms';
+import { Validators, FormControl } from '@angular/forms';
 import { WorkRotaService } from './../../../services/work-rota.service';
 import { User } from './../../../interfaces/User';
 import { UserService } from './../../../services/user.service';
@@ -8,6 +9,7 @@ import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { ViewRotaService } from 'src/app/view-rota.service';
 
 @Component({
   selector: 'app-rota-main-form',
@@ -20,6 +22,9 @@ export class RotaMainFormComponent implements OnInit {
   users: User[] = [];
   submitted = false;
   fetchingUser = false;
+  newRota: WorkRotaSettings;
+  rota = new FormControl({});
+
 
 
   constructor(
@@ -28,7 +33,8 @@ export class RotaMainFormComponent implements OnInit {
     private toastr: ToastrService,
     private userService: UserService,
     private rotaService: WorkRotaService,
-    private ngxSpinner: NgxSpinnerService
+    private ngxSpinner: NgxSpinnerService,
+    private viewRotaService: ViewRotaService
   ) {}
 
   ngOnInit() {
@@ -54,6 +60,7 @@ export class RotaMainFormComponent implements OnInit {
 
         if (!userIncluded) {
             this.users.push(user);
+            this.viewRotaService.selectedRota.setValue(this.users);
             this.toastr.info('User added');
             this.fetchingUser = false;
           } else {
