@@ -10,6 +10,7 @@
 </div>
 <hr>
 <div class="list-wrap">
+    <app-spinner [loading]="loadingRotas"></app-spinner>
     <div class="tile-container" *ngFor="let rota of rotas">
         <app-rota-tile [rota]="rota">
         
