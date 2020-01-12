@@ -1,15 +1,15 @@
-import { Router } from "@angular/router";
-import { Component, OnInit } from "@angular/core";
-import { AuthService } from "../auth.service";
-import { AuthState } from "aws-amplify-angular/dist/src/providers";
-import { ToastrService } from "ngx-toastr";
-import { FormBuilder, FormGroup } from "@angular/forms";
-import { environment } from "../../../environments/environment";
+import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../auth.service';
+import { AuthState } from 'aws-amplify-angular/dist/src/providers';
+import { ToastrService } from 'ngx-toastr';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { environment } from '../../../environments/environment';
 
 @Component({
-  selector: "app-confirm-registration",
-  templateUrl: "./confirm-registration.component.html",
-  styleUrls: ["./confirm-registration.component.scss"]
+  selector: 'app-confirm-registration',
+  templateUrl: './confirm-registration.component.html',
+  styleUrls: ['./confirm-registration.component.scss']
 })
 export class ConfirmRegistrationComponent implements OnInit {
   email: string;
@@ -28,17 +28,17 @@ export class ConfirmRegistrationComponent implements OnInit {
     this.isUserAllowedHere(this.authState);
 
     this.form = this.fb.group({
-      confirmationCode: [""]
+      confirmationCode: ['']
     });
   }
 
   get confirmationCode() {
-    return this.form.get("confirmationCode");
+    return this.form.get('confirmationCode');
   }
 
   isUserAllowedHere({ state, user }) {
-    if (state !== "confirmSignUp") {
-      this.router.navigate(["auth/register"]);
+    if (state !== 'confirmSignUp') {
+      this.router.navigate(['auth/register']);
     } else {
       this.email = user.username.username;
     }
@@ -51,7 +51,7 @@ export class ConfirmRegistrationComponent implements OnInit {
         this.confirmationCode.value
       );
       await this.authService.signIn(this.email, environment.userInfo.password);
-      this.router.navigate([""]);
+      this.router.navigate(['']);
     } catch (err) {
       this.toastr.error(err);
       console.log(err);
@@ -61,7 +61,7 @@ export class ConfirmRegistrationComponent implements OnInit {
   async resendVerificationCode() {
     try {
       await this.authService.resendVerificationCode(this.email);
-      this.toastr.success("New verification code sent");
+      this.toastr.success('New verification code sent');
     } catch (err) {
       this.toastr.error(err);
     }
