@@ -10,6 +10,7 @@ import { ViewRotaService } from 'src/app/view-rota.service';
   templateUrl: './rota-list.component.html',
   styleUrls: ['./rota-list.component.scss']
 })
+
 export class RotaListComponent implements OnInit {
 
   constructor(private viewRotaService: ViewRotaService, private auth: AuthService, private router: Router,

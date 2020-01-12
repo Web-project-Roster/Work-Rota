@@ -1,6 +1,10 @@
 <div class="grid-times" *ngIf="!edit; else editForm" (mouseup)="showForm()">
-    {{userData.timeStart}} <br>
-    {{userData.timeEnd}}
+    <div *ngIf="userData.timeStart && userData.timeEnd; else unset">
+        {{userData.timeStart}}
+        <span class="hyphen">-</span>
+        {{userData.timeEnd}}
+    </div>
+    <ng-template #unset><span class="unset">unset</span></ng-template>
 </div>
 <ng-template  #editForm >
     <div (focusout)="closeForm($event)">

@@ -1,13 +1,23 @@
  <div class="grid-container bg-primary-grad">
         <div class="days-row">
-            <span class="rota-heading" >{{rota.value.name}}</span>
+            <div class="col-sm-3 col-xs-12">
+                <span class="rota-heading" >{{rota.value.name}}</span>    
+            </div>
+            <div class="col day" *ngFor="let dayName of weekDayNames">
+                <span>{{dayName}}</span>
+            </div>
         </div>
         <div *ngFor="let user of rota.value.users; let i = index" class="user">
-            <div class="time-row" [attr.id]="i">
-                <div class="col-sm-2 col-xs-12 unit-name">
-                    {{user.firstName}}<br>{{user.surName}}
+            <div class="time-row">
+                <div class="col-sm-3 col-xs-12 unit-name" (click)="dropDown(i)">
+                    {{user.firstName}} {{user.surName}}
+                    <fa-icon [icon]="faArrowDown" size="md"></fa-icon>
                 </div>
-                <div class="unit col" *ngFor="let day of week.days; let d = index">
+                
+                <div class="unit col" *ngFor="let day of week.days; let d = index" [attr.id]="i" [@openUserWeek]="isOpen(i)">
+                    <div class="day-mobile">
+                        <span>{{ weekDayNames[d] }}</span>
+                    </div>
                     <app-rota-grid-item [user]="user" [userData]="day[i]" (insertUser)="insertUser($event, d, i)" (editTimes)="editTimes($event, d, i)" ></app-rota-grid-item>
                 </div>
             </div>
