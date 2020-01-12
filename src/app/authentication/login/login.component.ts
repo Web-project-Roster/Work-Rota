@@ -3,6 +3,7 @@ import { FormControl, FormBuilder, FormGroup } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -40,6 +41,12 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['/rota']);
     } catch (err) {
       this.toastr.error(err.message);
+      console.log(err.message);
+      if (err.message === 'User is not confirmed.') {
+        environment.userInfo.password = this.password.value;
+        environment.userInfo.email = this.email.value;
+        this.router.navigate(['auth/confirm-register']);
+      }
     }
   }
 }

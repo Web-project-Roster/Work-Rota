@@ -62,18 +62,18 @@ export class RegistrationComponent implements OnInit {
 
 
   async onSignUp() {
-    // try {
-    //   await this.authService.signUp({
-    //     email: this.email.value,
-    //     password: this.password.value,
-    //     firstName: this.firstName.value,
-    //     lastName: this.lastName.value
-    //   });
+    try {
+      await this.authService.signUp({
+        email: this.email.value,
+        password: this.password.value,
+        firstName: this.firstName.value,
+        lastName: this.lastName.value
+      });
 
-    //   environment.userInfo.password = this.password.value;
-    //   this.router.navigate(['auth/confirm-register']);
-    // } catch (err) {
-    //   this.toastr.error(err.message);
-    // }
+      environment.userInfo.password = this.password.value;
+      this.router.navigate(['auth/confirm-register']);
+    } catch (err) {
+      this.toastr.error(err.message);
+    }
   }
 }
