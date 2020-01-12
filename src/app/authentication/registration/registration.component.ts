@@ -28,7 +28,8 @@ export class RegistrationComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       firstName: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(35), Validators.pattern('[a-z,A-Z]*')]],
       lastName: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(35), Validators.pattern('[a-z,A-Z]*')]],
-      password: ['', [Validators.required, Validators.minLength(8), Validators.pattern('^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]')]],
+      password: ['', [Validators.required, Validators.minLength(8),
+        Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])/)]],
       confirmPassword: ['', Validators.required]
     }, {validator: this.checkPasswordsMatch});
   }
