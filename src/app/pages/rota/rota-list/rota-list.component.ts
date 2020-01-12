@@ -19,7 +19,6 @@ export class RotaListComponent implements OnInit {
   constructor(private viewRotaService: ViewRotaService, private auth: AuthService, private router: Router,
               private workRotaService: WorkRotaService) { }
 
-
   NewRota() {
     this.viewRotaService.selectedRota.setValue({});
     this.router.navigate(['/rota', {outlets: {'rota-grid': 'edit', 'rota-shelf-left': 'edit' }}]);
@@ -29,6 +28,5 @@ export class RotaListComponent implements OnInit {
     this.loadingRotas = true;
     this.rotas = await this.workRotaService.getRotasForCurrentUser();
     this.loadingRotas = false;
-    console.log(this.rotas);
   }
 }
