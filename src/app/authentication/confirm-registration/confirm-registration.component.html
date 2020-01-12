@@ -1,23 +1,17 @@
 <div class="container">
-  <form [formGroup]="form" (ngSubmit)="confirmCode()" id="codeForm">
-    <div class="form-group">
-      <label for="confirmationCode">Confirmation Code: </label>
-      <input
-        id="confirmationCode"
-        type="text"
-        formControlName="confirmationCode"
-        class="form-control"
-      />
-    </div>
-    <button class="mx-auto btn btn-primary" type="submit">Submit</button>
+  <form [formGroup]="form" (ngSubmit)="confirmCode()" class="form-inline">
+    <label for="confirmationCode">Confirmation Code: </label>
+    <input
+      id="confirmationCode"
+      type="text"
+      formControlName="confirmationCode"
+      class="form-control"
+    />
+    <button class="mx-auto btn btn-primary" type="submit" id="confirmationSubmit">Submit</button>
   </form>
-  <div>
-    Check your email to verify your amazon.jobs account We've sent a
-    verification code to {{ email }}. Check your email to verify your account so
+  <div id="verification-text">
+    We've sent a verification code to {{ email }}. Check your email to verify your account so
     we know it's you. If you didn't receive the verification email, please check
-    your spam folder. Or,
+    your spam folder. <a href="" (click)="resendVerificationCode()">Click here to resend</a>
   </div>
-  <a (click)="resendVerificationCode()">
-    <button>click here to resend it.</button>
-  </a>
 </div>
