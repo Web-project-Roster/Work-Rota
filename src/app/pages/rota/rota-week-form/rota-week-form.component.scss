@@ -5,13 +5,49 @@
         padding: 6px;
         height: 40px;
         border-bottom: 1px solid #2A00AA;
+        display: flex;
+        flex-wrap: wrap;
+
+        .rota-heading {
+            font-size: 24px;
+            white-space: nowrap;
+        }
+
+        .day, .day-mobile {
+            text-align: center;
+            color: white;
+        }
+
+        
+
+        @media (max-width: 770px) {
+            .day {
+                padding-top: 4px;
+                font-size: 12px;
+            }
+        }
 
         .rota-heading {
             font-size: 18px;
             color: white;
-            padding: 4px 10px;
             height: 28px !important;
         }
+    }
+
+    @media (max-width: 576px) {
+        .days-row {
+            height: 50px;
+
+            .day {
+                display: none;
+            }
+
+            .rota-heading {
+                font-size: 26px !important;
+            }
+        }
+
+        
     }
 
     .user {
@@ -19,10 +55,14 @@
         height: fit-content;
     
         .time-row {
-            height: 60px;
+            min-height: 60px;
             padding: 0 !important;
             display: flex;
             flex-wrap: wrap;
+
+            fa-icon {
+                display: none;
+            }
 
             .unit-name {
                 padding-top: 5px;
@@ -35,10 +75,46 @@
                 border-bottom: 1px solid #2A00AA;
                 border-right: 1px solid #2A00AA;
                 padding: 0px !important;
-
-                .grid-btn {
-                    
+            
+                .day-mobile {
+                    display: none;
                 }
+            }
+
+            @media (max-width: 576px) {
+                .unit-name {
+                    padding-top: 12px;
+                    border-top: 1px solid;
+                    border-bottom: 0;
+                    height: 60px;
+                    font-size: 20px;
+                }
+
+                fa-icon {
+                    font-size: 22px;
+                    cursor: pointer;
+                    position: absolute;
+                    top: 12px;
+                    right: 20px;
+                    color: white;
+                    display: block;
+                }
+
+                .unit {
+                    height: 0;
+                    border-bottom: 0;
+                    flex-basis: unset;
+                    border-left: 1px solid #2A00AA;
+                    overflow: hidden;
+
+                    .day-mobile {
+                        font-size: 20px;
+                        padding-left: 10px;
+                        display: block;
+                    }
+                }
+
+                
             }
         }
     }

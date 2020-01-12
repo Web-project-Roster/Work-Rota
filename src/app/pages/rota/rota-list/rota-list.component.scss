@@ -5,9 +5,21 @@
     padding: 10px;
 }
 
-@media (max-width: 986px) {
+@media (max-width: 990px) {
     .list-wrap {
         overflow-x: auto;
         display: flex;
+    }
+    .tile-container {
+        width: 140px;
+        height: 80px;
+        padding: 0px;
+    }
+}
+@media (max-width: 576px) {
+    .tile-container {
+        width: 140px;
+        height: 80px;
+        padding: 0px;
     }
 }

@@ -2,6 +2,10 @@
     padding-top: 5px;
     min-height: 57px;
     text-align: center;
+
+    .unset {
+        font-style: italic;
+    }
 }
 
 .grid-times-form {
@@ -15,4 +19,30 @@
     z-index: 1;
     width: 25px !important;
     height: 25px !important;
+}
+
+.hyphen {
+    display: none;
+}
+
+@media (max-width:576px) {
+    .grid-times-form {
+        font-size: 24px;
+        width: 50%;
+        height: 49px;
+    }
+
+    .grid-times {
+        font-size: 24px;
+    }
+
+    .hyphen {
+        display: inline;
+    }
+
+    .round {
+        font-size: 18px;
+        width: 40px !important;
+        height: 40px !important;
+    }
 }

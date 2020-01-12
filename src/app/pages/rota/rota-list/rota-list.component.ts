@@ -10,6 +10,7 @@ import { ViewRotaService } from 'src/app/view-rota.service';
   templateUrl: './rota-list.component.html',
   styleUrls: ['./rota-list.component.scss']
 })
+
 export class RotaListComponent implements OnInit {
   faCalendarPlus = faCalendarPlus;
   rotas = [];
