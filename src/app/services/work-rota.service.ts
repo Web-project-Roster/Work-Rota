@@ -47,5 +47,4 @@ export class WorkRotaService {
     };
     return API.put(this.apiName, '/rotas/week', params);
   }
-
 }
