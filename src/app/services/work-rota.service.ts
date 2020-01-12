@@ -48,4 +48,13 @@ export class WorkRotaService {
     return API.put(this.apiName, '/rotas/week', params);
   }
 
+  getAllRotaWeeks(rotaId: string): Promise<WorkRotaWeek[]> {
+    const id = this.splitRotaId(rotaId);
+    return API.get(this.apiName, `/rotas/week/${id}`, '');
+  }
+
+  private splitRotaId(rotaId: string): string {
+    return rotaId.split('#')[1];
+  }
+
 }
