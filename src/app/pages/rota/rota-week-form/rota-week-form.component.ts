@@ -1,6 +1,6 @@
 import { Component, OnInit, ElementRef } from '@angular/core'
 import {trigger, state, style, transition, animate} from '@angular/animations';
-import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
+import { faArrowDown, faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { ViewRotaService } from 'src/app/view-rota.service'
 import { FormControl } from '@angular/forms';
 
@@ -25,6 +25,10 @@ import { FormControl } from '@angular/forms';
 })
 export class RotaWeekFormComponent implements OnInit {
   faArrowDown = faArrowDown
+  faArrowLeft = faArrowLeft
+  faArrowRight = faArrowRight
+
+
   mobileShelfOpen = []
   weekDayNames = []
   rota = new FormControl({})
