@@ -29,6 +29,7 @@
       <div *ngIf="firstName.errors?.required">First name is required</div>
       <div *ngIf="firstName.errors?.minlength">Length of name must be at least 2 characters long</div>
       <div *ngIf="firstName.errors?.maxlength">Length of name must be at most 35 characters long</div>
+      <div *ngIf="firstName.errors?.pattern">First name can only contain alphabetic characters</div>
     </div>
 
     <label for="lastname">Last Name: </label>
@@ -43,6 +44,7 @@
       <div *ngIf="lastName.errors?.required">Last name is required</div>
       <div *ngIf="lastName.errors?.minlength">Length of name must be at least 2 characters long</div>
       <div *ngIf="lastName.errors?.maxlength">Length of name must be at most 35 characters long</div>
+      <div *ngIf="lastName.errors?.pattern">Last name can only contain alphabetic characters</div>
     </div>
 
   
@@ -57,7 +59,7 @@
     <div *ngIf="password?.errors && password?.dirty" class="invalid-feedback">
       <div *ngIf="password.errors?.required">Password is required</div>
       <div *ngIf="password.errors?.minlength">Password must be at least 8 characters long</div>
-      <!-- <div *ngIf="password.errors?.pattern">Password must contain at least 1 uppercase character, 1 numeric character, 1 special character and 1 lowercase character</div> -->
+      <div *ngIf="password.errors?.pattern">Password must contain at least 1 uppercase character, 1 numeric character and 1 lowercase character</div>
     </div>  
 
     <label for="confirmPassword">Confirm Password: </label>
