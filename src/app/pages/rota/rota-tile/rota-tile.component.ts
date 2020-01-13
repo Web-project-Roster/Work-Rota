@@ -29,16 +29,18 @@ export class RotaTileComponent implements OnInit {
 
   //A click event cannot be assigned to a component directly, so a HostListener must be used instead.
   @HostListener("click") onClick(){
-    this.router.navigate(['/rota', { outlets: {'rota-grid': 'edit', 'rota-shelf-left': 'view' }}])
+    this.router.navigate(['rota/list', { outlets: {'rota-grid': 'edit', 'rota-shelf-left': 'view' }}])
     this.viewRotaService.selectedRota.setValue(this.rota)
+  }
+
+  constructor(private viewRotaService: ViewRotaService, private router: Router) {
     this.viewRotaService.selectedRota.valueChanges.subscribe((value:any) =>  {
       value.sk == this.rota.sk ? this.isSelected = true : this.isSelected = false
     })
-  }
-
-  constructor(private viewRotaService: ViewRotaService, private router: Router) { }
+   }
 
   ngOnInit() {
+    
   }
 
   get getState() {

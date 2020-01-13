@@ -46,7 +46,7 @@ export class RotaMainFormComponent implements OnInit {
   }
 
   toDashboard() {
-    this.router.navigate(['rota']);
+    this.router.navigate(['rota/list']);
   }
 
   async getUserByEmail(email: string) {

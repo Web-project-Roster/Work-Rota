@@ -1,8 +1,8 @@
 <div class="grid-times" *ngIf="!edit; else editForm" (mouseup)="showForm()">
-    <div *ngIf="userData.timeStart && userData.timeEnd; else unset">
-        {{userData.timeStart}}
+    <div *ngIf="timeStart.value && timeEnd.value; else unset">
+        {{timeStart.value}}
         <span class="hyphen">-</span>
-        {{userData.timeEnd}}
+        {{timeEnd.value}}
     </div>
     <ng-template #unset><span class="unset">unset</span></ng-template>
 </div>

@@ -11,6 +11,7 @@ export class RotaGridItemComponent implements OnInit {
   faCheck = faCheck
   edit = false
 
+  @Input() isManager
   @Input() user:any
   @Input() userData:any
   @Output() insertUser : EventEmitter<any> = new EventEmitter()
@@ -26,29 +27,37 @@ export class RotaGridItemComponent implements OnInit {
   timeEnd = new FormControl()
  
   submitTimes() {
-    this.editTimes.emit({ 
-      timeStart: this.timeStart.value,
-      timeEnd: this.timeEnd.value 
-    })
-    this.edit = false
+    if (this.isManager) {
+      this.editTimes.emit({ 
+        timeStart: this.timeStart.value,
+        timeEnd: this.timeEnd.value 
+      })
+      this.edit = false
+    }
+    else {
+      console.log('not Manager')
+    }
   }
 
   showForm() {
-    this.edit = true
-  }
-
-  closeForm(element) {
-    
+    if (this.isManager) {
+      this.edit = true
+    }
   }
 
   constructor(private eRef: ElementRef) { }
   
   ngOnInit() {
     if (!this.userData || this.userData.userId != this.user.userId) {
-      this.userData = this.user
+      this.userData = {
+        firstName: this.user.fname,
+        lastName: this.user.lname
+      }
       this.insertUser.emit(this.user)
     }
-    this.timeStart.setValue(this.userData.timeStart)
-    this.timeEnd.setValue(this.userData.timeEnd)
+    if (this.userData.hours) {
+      this.timeStart.setValue(this.userData.hours.split('-')[0])
+      this.timeEnd.setValue(this.userData.hours.split('-')[1])
+    }
   }
 }
