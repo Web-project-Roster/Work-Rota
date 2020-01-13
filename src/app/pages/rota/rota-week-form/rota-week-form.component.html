@@ -40,7 +40,7 @@
                         <div class="day-mobile">
                             <span>{{ weekDayNames[d] }}</span>
                         </div>
-                        <app-rota-grid-item [user]="user" [userData]="day[0]" [isManager]="isManager.value" (insertUser)="insertUser($event, d, i)" (editTimes)="editTimes($event, d, i)" ></app-rota-grid-item>
+                        <app-rota-grid-item [user]="user" [userData]="day[i]" [isManager]="isManager.value" (insertUser)="insertUser($event, d, i)" (editTimes)="editTimes($event, d, i)" ></app-rota-grid-item>
                     </div>
                 </div>
             </div>
