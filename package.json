@@ -30,6 +30,7 @@
     "ngx-spinner": "^8.1.0",
     "ngx-toastr": "^11.1.2",
     "rxjs": "~6.4.0",
+    "rxjs-compat": "^6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
   },
