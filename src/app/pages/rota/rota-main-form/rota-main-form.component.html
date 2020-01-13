@@ -3,8 +3,11 @@
         <fa-icon (click)="toDashboard()" [icon]="faArrowLeft"></fa-icon>
 
         <div class="form-header">
-            <span class="rota-form-heading">Create New Rota</span>
+            <span *ngIf="beingEdited; else isBeingEdited" class="rota-form-heading">Create New Rota</span>
         </div>
+        <ng-template #isBeingEdited>
+            <span class="rota-form-heading">Edit Rota</span>
+        </ng-template>
         <form [formGroup]="newRotaForm" (ngSubmit)="createNewRota()" class="form-input-container">
             <div class="form-group">
                 <label for="rotaName">Rota Name</label>

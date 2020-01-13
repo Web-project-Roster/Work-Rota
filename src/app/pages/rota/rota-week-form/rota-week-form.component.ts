@@ -56,8 +56,6 @@ export class RotaWeekFormComponent implements OnInit {
         this.rota.setValue(value);
         this.getRota(sk);
 
-        // short wait to ensure the rota is pulled in
-
         this.getWeeks(sk);
     });
   }
@@ -79,7 +77,6 @@ export class RotaWeekFormComponent implements OnInit {
 
   }
 
-  // SPINNER HERE IN THIS METHOD ---------------------------------------------------------------------------------------------------
   async getWeeks(sk: string) {
     if (sk !== undefined && sk !== '') {
       this.allWeeksForRota = await this.workRotaService.getAllRotaWeeks(sk);
@@ -173,8 +170,9 @@ export class RotaWeekFormComponent implements OnInit {
     return this.mobileShelfOpen[index] ? 'show' : 'hide';
   }
 
-  editRotaSettings() {
+  async editRotaSettings() {
     if (this.isManager) {
+      this.viewRotaService.selectedRotaForEditiing.setValue(await this.workRotaService.getRotaSettings(this.rota.value.sk));
       this.router.navigate(['rota/list', {outlets: {'rota-grid': 'edit', 'rota-shelf-left': 'edit' }}]);
     }
   }

@@ -1,3 +1,4 @@
+import { async } from '@angular/core/testing';
 import { WorkRotaSettings } from './../../../interfaces/WorkRotaSettings';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Validators, FormControl } from '@angular/forms';
@@ -24,8 +25,8 @@ export class RotaMainFormComponent implements OnInit {
   fetchingUser = false;
   newRota: WorkRotaSettings;
   rota = new FormControl({});
-
-
+  beingEdited = false;
+  rotaId = '';
 
   constructor(
     private fb: FormBuilder,
@@ -38,10 +39,30 @@ export class RotaMainFormComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.newRotaForm = this.fb.group({
-      rotaName: ['', Validators.required],
-      startTime: ['', Validators.required],
-      endTime: ['', Validators.required]
+    console.log(this.viewRotaService.selectedRotaForEditiing.value);
+    if (this.viewRotaService.selectedRotaForEditiing) {
+      const {name, workingHours, users, pk} = this.viewRotaService.selectedRotaForEditiing.value;
+      this.rotaId = pk;
+      this.addInUsers(users);
+      this.beingEdited = true;
+
+      this.newRotaForm = this.fb.group({
+        rotaName: [name, Validators.required],
+        startTime: [workingHours.split('-')[0], Validators.required],
+        endTime: [workingHours.split('-')[1], Validators.required]
+      });
+    } else {
+      this.newRotaForm = this.fb.group({
+        rotaName: ['', Validators.required],
+        startTime: ['', Validators.required],
+        endTime: ['', Validators.required]
+      });
+    }
+  }
+
+  addInUsers(users) {
+    users.forEach(u => {
+      this.users.push(u);
     });
   }
 
@@ -102,12 +123,32 @@ export class RotaMainFormComponent implements OnInit {
       return;
     }
     const hours = this.getWorkingHours(this.startTime.value, this.endTime.value);
+    if (this.beingEdited) {
+      this.editRota(hours);
+    } else {
+      try {
+        this.ngxSpinner.show();
+        await this.rotaService.createRotaSettings({
+          name: this.rotaName.value,
+          users: this.users,
+          workingHours: hours
+        });
+        this.toDashboard();
+        this.ngxSpinner.hide();
+      } catch (err) {
+        this.toastr.error(err);
+      }
+    }
+  }
+
+  async editRota(hours) {
     try {
       this.ngxSpinner.show();
-      await this.rotaService.createRotaSettings({
+      await this.rotaService.updateRotaSettings({
         name: this.rotaName.value,
         users: this.users,
-        workingHours: hours
+        workingHours: hours,
+        pk: this.rotaId
       });
       this.toDashboard();
       this.ngxSpinner.hide();
@@ -116,3 +157,5 @@ export class RotaMainFormComponent implements OnInit {
     }
   }
 }
+
+
