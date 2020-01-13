@@ -102,7 +102,6 @@ export class RotaWeekFormComponent implements OnInit, AfterViewInit {
         this.isManager.setValue(false);
       }
       this.weeks.setValue(this.allWeeksForRota);
-      this.mobileShelfOpen = this.rota.value.users.map(m => false);
       this.weekIndex.setValue(this.weeks.value.length - 1);
     }
   }
