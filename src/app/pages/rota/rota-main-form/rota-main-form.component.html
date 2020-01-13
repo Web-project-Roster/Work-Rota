@@ -3,7 +3,7 @@
         <fa-icon (click)="toDashboard()" [icon]="faArrowLeft"></fa-icon>
 
         <div class="form-header">
-            <span *ngIf="beingEdited; else isBeingEdited" class="rota-form-heading">Create New Rota</span>
+            <span *ngIf="!beingEdited; else isBeingEdited" class="rota-form-heading">Create New Rota</span>
         </div>
         <ng-template #isBeingEdited>
             <span class="rota-form-heading">Edit Rota</span>

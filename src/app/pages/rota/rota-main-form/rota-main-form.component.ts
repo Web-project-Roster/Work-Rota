@@ -39,8 +39,7 @@ export class RotaMainFormComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    console.log(this.viewRotaService.selectedRotaForEditiing.value);
-    if (this.viewRotaService.selectedRotaForEditiing) {
+    if (Object.keys(this.viewRotaService.selectedRotaForEditiing.value).length > 0) {
       const {name, workingHours, users, pk} = this.viewRotaService.selectedRotaForEditiing.value;
       this.rotaId = pk;
       this.addInUsers(users);
@@ -52,6 +51,7 @@ export class RotaMainFormComponent implements OnInit {
         endTime: [workingHours.split('-')[1], Validators.required]
       });
     } else {
+      this.beingEdited = false;
       this.newRotaForm = this.fb.group({
         rotaName: ['', Validators.required],
         startTime: ['', Validators.required],
@@ -150,6 +150,7 @@ export class RotaMainFormComponent implements OnInit {
         workingHours: hours,
         pk: this.rotaId
       });
+      this.viewRotaService.selectedRotaForEditiing.setValue({});
       this.toDashboard();
       this.ngxSpinner.hide();
     } catch (err) {

@@ -37,8 +37,6 @@ export class RotaGridItemComponent implements OnInit {
         user: this.user
       });
       this.edit = false;
-    } else {
-      console.log('not Manager');
     }
   }
 
@@ -49,15 +47,14 @@ export class RotaGridItemComponent implements OnInit {
   }
 
   ngOnInit() {
-    // console.log(this.userData);
-    if (!this.userData || this.userData.userId !== this.user.userId) {
+    if (this.userData === undefined) {
       this.userData = {
         firstName: this.user.fname,
         lastName: this.user.lname
       };
       this.insertUser.emit(this.user);
     }
-    if (this.userData.hours) {
+    if (this.userData !== undefined && this.userData.hours) {
       this.timeStart.setValue(this.userData.hours.split('-')[0]);
       this.timeEnd.setValue(this.userData.hours.split('-')[1]);
     }

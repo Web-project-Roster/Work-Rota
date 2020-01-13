@@ -25,27 +25,27 @@ import { ViewRotaService } from 'src/app/view-rota.service';
 })
 export class RotaTileComponent implements OnInit {
   @Input() rota;
-  isSelected = false
-
-  //A click event cannot be assigned to a component directly, so a HostListener must be used instead.
-  @HostListener("click") onClick(){
-    this.router.navigate(['rota/list', { outlets: {'rota-grid': 'edit', 'rota-shelf-left': 'view' }}])
-    this.viewRotaService.selectedRota.setValue(this.rota)
-  }
+  isSelected = false;
 
   constructor(private viewRotaService: ViewRotaService, private router: Router) {
-    this.viewRotaService.selectedRota.valueChanges.subscribe((value:any) =>  {
-      value.sk == this.rota.sk ? this.isSelected = true : this.isSelected = false
-    })
+    this.viewRotaService.selectedRota.valueChanges.subscribe((value: any) =>  {
+      value.sk === this.rota.sk ? this.isSelected = true : this.isSelected = false;
+    });
    }
 
   ngOnInit() {
-    
+
+  }
+
+  getRota() {
+    this.router.navigate(['rota/list', { outlets: {'rota-grid': 'edit', 'rota-shelf-left': 'view' }}]);
+    this.viewRotaService.selectedRota.setValue(this.rota);
   }
 
   get getState() {
-    if (window.screen.width > 990)
-      return this.isSelected ? 'right' : 'unset'
-    return this.isSelected ? 'up' : 'unset'
+    if (window.screen.width > 990) {
+      return this.isSelected ? 'right' : 'unset';
+    }
+    return this.isSelected ? 'up' : 'unset';
   }
 }

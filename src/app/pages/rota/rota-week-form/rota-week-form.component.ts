@@ -1,5 +1,5 @@
 import { User } from './../../../interfaces/User';
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, OnInit, ElementRef, AfterViewInit } from '@angular/core';
 import {trigger, state, style, transition, animate} from '@angular/animations';
 import { faArrowDown, faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { ViewRotaService } from 'src/app/view-rota.service';
@@ -27,7 +27,7 @@ import { ToastrService } from 'ngx-toastr';
     ])
   ]
 })
-export class RotaWeekFormComponent implements OnInit {
+export class RotaWeekFormComponent implements OnInit, AfterViewInit {
   faArrowDown = faArrowDown;
   faArrowLeft = faArrowLeft;
   faArrowRight = faArrowRight;
@@ -38,9 +38,12 @@ export class RotaWeekFormComponent implements OnInit {
   isManager = new FormControl(false);
   manager: User;
   allWeeksForRota: WorkRotaWeek[] = [];
+  loadingRota = false;
 
   mobileShelfOpen: boolean[] = [];
   weekDayNames = [];
+  usersToBeAdded = [];
+  listOfDayIndexs = [];
 
   constructor(
     private viewRotaService: ViewRotaService,
@@ -61,15 +64,23 @@ export class RotaWeekFormComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.loadingRota = true;
     this.weekIndex.setValue(this.weeks.value.length - 1 || 0);
     this.weekDayNames = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun' ];
     this.rota.setValue(this.viewRotaService.selectedRota.value);
+    this.loadingRota = false;
   }
 
   async getRota(sk: string) {
     if (sk !== undefined && sk !== '') {
       this.rota.setValue(await this.workRotaService.getRotaSettings(sk));
 
+    }
+  }
+
+  ngAfterViewInit() {
+    for (let i = 0; i < this.listOfDayIndexs.length; i++) {
+      this.weeks.value[this.weekIndex.value].days[i].push(this.usersToBeAdded[i]);
     }
   }
 
@@ -122,7 +133,8 @@ export class RotaWeekFormComponent implements OnInit {
   }
 
   insertUser(user, dayIndex, userIndex) {
-    this.weeks.value[this.weekIndex.value].days[dayIndex].splice(userIndex, 0, user);
+    this.listOfDayIndexs.push(dayIndex);
+    this.usersToBeAdded.push(user);
   }
 
   async editTimes({timeStart, timeEnd, user}, dayIndex, userIndex) {
