@@ -19,19 +19,17 @@ body {
         padding: 0px !important;
     }
 
-    button, a {
+    button {
         width: 120px;
         height: 30px;
-        border-radius: 50px !important;
         color: white !important;
         cursor: pointer;
         background-color: #3500D3 !important;
         border-color: rgba(0, 0, 0, 0) !important;
-        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.75) ;
         transition: all 1s;
     }
 
-    button.round, a.round {
+    button.round {
         width: 40px !important;
         height: 40px !important;
     }
@@ -40,7 +38,7 @@ body {
         box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.75);
     }
 
-    button:focus, a:focus {
+    button:focus {
         box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.75) !important;
     }
 
