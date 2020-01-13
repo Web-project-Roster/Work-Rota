@@ -5,6 +5,10 @@
     padding: 10px;
 }
 
+hr {
+    margin-top: 10px !important;
+}
+
 @media (max-width: 990px) {
     .list-wrap {
         overflow-x: auto;
