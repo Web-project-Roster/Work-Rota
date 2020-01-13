@@ -7,6 +7,7 @@ import { WorkRotaService } from 'src/app/services/work-rota.service';
 import { WorkRotaWeek, NewRotaWeek } from 'src/app/interfaces/WorkRotaWeek';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/authentication/auth.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-rota-form',
@@ -38,20 +39,23 @@ export class RotaWeekFormComponent implements OnInit {
   mobileShelfOpen = []
   weekDayNames = []
 
-  constructor(private viewRotaService: ViewRotaService, private eRef: ElementRef, private workRotaService: WorkRotaService, private router: Router, private auth: AuthService) { 
-    this.viewRotaService.selectedRota.valueChanges.subscribe((value:any) =>  {
-      const context = this
-      const sk = value.sk
-      context.weeks.setValue([])
-      context.rota.setValue(value)
-      context.getRota()
+  constructor(
+    private viewRotaService: ViewRotaService, 
+    private eRef: ElementRef, 
+    private workRotaService: WorkRotaService, 
+    private router: Router, 
+    private auth: AuthService,
+    private toastr: ToastrService) { 
+      this.viewRotaService.selectedRota.valueChanges.subscribe((value:any) =>  {
+        const context = this
+        const sk = value.sk
+        context.weeks.setValue([])
+        context.rota.setValue(value)
+        context.getRota()
 
-      //short wait to ensure the rota is pulled in
+        //short wait to ensure the rota is pulled in
 
-      context.getWeeks(sk)
-      
-      
-      
+        context.getWeeks(sk)      
     })
   }
 
@@ -85,14 +89,18 @@ export class RotaWeekFormComponent implements OnInit {
     if (this.weeks.value && this.weeks.value[this.weekIndex.value + 1])
       return this.weekIndex.setValue(this.weekIndex.value + 1)
     
-    let rotaWeek:NewRotaWeek = {
-      pk: this.rota.value.sk,
-      weekNo: (this.weekIndex.value + 1) || 0
+    if (this.isManager) {
+      let rotaWeek:NewRotaWeek = {
+        pk: this.rota.value.sk,
+        weekNo: (this.weekIndex.value + 1) || 0
+      }
+  
+      await this.workRotaService.generateRotaWeek(rotaWeek)
+  
+      this.getWeeks(this.rota.value.sk)
+  
+      return this.toastr.success('You have just created a new week');
     }
-
-    await this.workRotaService.generateRotaWeek(rotaWeek)
-
-    this.getWeeks(this.rota.value.sk)
   }
 
   lastWeek() {
@@ -120,7 +128,7 @@ export class RotaWeekFormComponent implements OnInit {
 
   editRotaSettings() {
     if (this.isManager)
-      this.router.navigate(['/rota', {outlets: {'rota-grid': 'edit', 'rota-shelf-left': 'edit' }}]);
+      this.router.navigate(['rota/list', {outlets: {'rota-grid': 'edit', 'rota-shelf-left': 'edit' }}]);
   }
 
   get rotaIsEmpty() {

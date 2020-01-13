@@ -12,6 +12,11 @@ import { RotaMainFormComponent } from './pages/rota/rota-main-form/rota-main-for
 import { RotaListComponent } from './pages/rota/rota-list/rota-list.component';
 
 const routes: Routes = [
+  { 
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'rota/list'
+  },
   {
     path: "auth",
     component: AuthenticationComponent,
@@ -22,12 +27,12 @@ const routes: Routes = [
     ]
   },
   { 
-    path: "", 
+    path: "rota", 
     component: MainComponent, 
     canActivate: [AuthGuard],
     children: [
       { 
-        path: "rota", 
+        path: "list", 
         component: RotaDashboardComponent,
         children: [
           {
@@ -52,7 +57,7 @@ const routes: Routes = [
           }
         ]
       }
-    ]
+    ],
   }
 ];
 

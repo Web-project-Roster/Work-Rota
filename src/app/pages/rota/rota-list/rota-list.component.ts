@@ -21,7 +21,7 @@ export class RotaListComponent implements OnInit {
 
   NewRota() {
     this.viewRotaService.selectedRota.setValue({});
-    this.router.navigate(['/rota', {outlets: {'rota-grid': 'edit', 'rota-shelf-left': 'edit' }}]);
+    this.router.navigate(['rota/list', {outlets: {'rota-grid': 'edit', 'rota-shelf-left': 'edit' }}]);
   }
 
   async ngOnInit() {
